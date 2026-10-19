@@ -18,5 +18,5 @@ Download [AK-1.pdf](./AK-1.pdf) directly from the repository or via the live por
 
 ## 👤 Author
 **Ayush Kumar**  
-AI & ML Engineer  
+AI & Full Stack Engineer  
 Email: [ayush2003kumar19@gmail.com](mailto:ayush2003kumar19@gmail.com)
