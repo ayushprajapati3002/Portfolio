@@ -1,0 +1,19 @@
+# Dependencies & tools
+.kombai/
+node_modules/
+
+# OS metadata
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# IDE configs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local logs
+*.log

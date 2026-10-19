@@ -1,0 +1,2321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayush Kumar — AI & ML Engineer</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23111827'/><text x='50' y='65' font-size='48' font-weight='bold' fill='%23FFFFFF' text-anchor='middle' font-family='sans-serif'>AK</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+  @import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.48.0/dist/tabler-icons.min.css');
+
+  :root {
+    --bg-ink: #18191c;
+    --bg-carbon: #202226;
+    --bg-graphite: #27292f;
+    --border-iron: #32353c;
+    --text-paper: #F5F6F8;
+    --text-ash: #E0E2E8;
+    --text-slate: #9DA3AE;
+    --surface-hover: #2b2e35;
+    --horizon-start: #202226;
+    --horizon-end: #18191c;
+  }
+
+  body.light-theme {
+    --bg-ink: #FAFAFA;
+    --bg-carbon: #FFFFFF;
+    --bg-graphite: #F4F4F5;
+    --border-iron: #E4E4E7;
+    --text-paper: #09090B;
+    --text-ash: #27272A;
+    --text-slate: #52525B;
+    --surface-hover: #F0F0F2;
+    --horizon-start: #FFFFFF;
+    --horizon-end: #EDEDED;
+  }
+
+  .font-heading {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .font-sans {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'Geist Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Swiss Grid Overlay Hairlines */
+  .swiss-grid-bg {
+    background-image: linear-gradient(to right, var(--border-iron) 1px, transparent 1px);
+    background-size: calc(100% / 12) 100%;
+  }
+
+  /* Outer Stroke Tile with Keyline Ornament */
+  .outer-stroke-tile {
+    background-color: var(--bg-graphite);
+    border: 1px solid var(--border-iron);
+    position: relative;
+  }
+  .outer-stroke-tile::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: 8px;
+    height: 8px;
+    border-top: 1px solid var(--text-paper);
+    border-right: 1px solid var(--text-paper);
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
+  /* Matte Chrome Cut-Corner Badge */
+  .cut-corner-badge {
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+  }
+
+  /* Corner Bracket Frame for Inline Numerals */
+  .bracket-numeral {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 7px;
+  }
+  .bracket-numeral::before,
+  .bracket-numeral::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-color: var(--text-slate);
+  }
+  .bracket-numeral::before {
+    top: 0;
+    left: 0;
+    border-top: 1px solid var(--text-slate);
+    border-left: 1px solid var(--text-slate);
+  }
+  .bracket-numeral::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 1px solid var(--text-slate);
+    border-right: 1px solid var(--text-slate);
+  }
+
+  /* Horizon Wash Band */
+  .horizon-wash {
+    background: linear-gradient(180deg, var(--horizon-start) 0%, var(--horizon-end) 100%);
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-ink);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-iron);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-slate);
+  }
+
+  /* ========================================
+     CINEMATIC HERO PORTRAIT SYSTEM
+     ======================================== */
+
+  /* Hero section: full viewport, graphite aesthetic */
+  #home {
+    background: #18191c !important;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Portrait container */
+  #hero-portrait-frame {
+    will-change: transform;
+    position: relative;
+  }
+
+  /* The portrait image: Pure B&W, refined studio contrast, sharp highlights, deep blacks */
+  #hero-portrait-img {
+    filter: grayscale(100%) contrast(1.22) brightness(1.04);
+    object-fit: cover;
+    object-position: top center;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* Studio Lighting Radial Glow behind portrait */
+  .hero-studio-glow {
+    position: absolute;
+    top: 25%;
+    left: 45%;
+    width: 480px;
+    height: 480px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(200, 200, 220, 0.03) 40%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none;
+    z-index: 0;
+    border-radius: 50%;
+    filter: blur(40px);
+  }
+
+  /* Refined multi-stage gradient mask: seamless feathering into black backdrop */
+  .hero-portrait-mask {
+    -webkit-mask-image:
+      radial-gradient(ellipse 85% 78% at 52% 42%, rgba(0,0,0,1) 45%, rgba(0,0,0,0.85) 65%, rgba(0,0,0,0.3) 82%, rgba(0,0,0,0) 100%),
+      linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 6%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 98%);
+    mask-image:
+      radial-gradient(ellipse 85% 78% at 52% 42%, rgba(0,0,0,1) 45%, rgba(0,0,0,0.85) 65%, rgba(0,0,0,0.3) 82%, rgba(0,0,0,0) 100%),
+      linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 6%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 98%);
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
+  }
+
+  /* Slow floating animation */
+  @keyframes hero-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-7px); }
+  }
+  .hero-float-anim {
+    animation: hero-float 7s ease-in-out infinite;
+  }
+
+  /* Fade-in + subtle upward slide for portrait */
+  @keyframes hero-portrait-enter {
+    0% {
+      opacity: 0;
+      transform: translateY(35px) scale(0.97);
+      filter: blur(6px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0px);
+    }
+  }
+  .hero-portrait-enter {
+    animation: hero-portrait-enter 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+    opacity: 0;
+  }
+
+  /* Hover zoom on portrait */
+  .hero-portrait-hover {
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .hero-portrait-hover:hover {
+    transform: scale(1.02);
+  }
+
+  /* Staggered text reveal */
+  @keyframes text-reveal-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .hero-text-reveal {
+    opacity: 0;
+    animation: text-reveal-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .hero-text-delay-1 { animation-delay: 0.2s; }
+  .hero-text-delay-2 { animation-delay: 0.4s; }
+  .hero-text-delay-3 { animation-delay: 0.6s; }
+  .hero-text-delay-4 { animation-delay: 0.8s; }
+  .hero-text-delay-5 { animation-delay: 1.0s; }
+  .hero-text-delay-6 { animation-delay: 1.2s; }
+
+  /* Thin horizontal rule accent */
+  .hero-rule {
+    width: 32px;
+    height: 2px;
+    background: #A0A0A0;
+    display: block;
+    margin: 16px 0;
+  }
+
+  /* Social icons vertical bar */
+  .hero-social-bar a {
+    color: #A0A0A0;
+    transition: color 0.3s ease;
+    font-size: 15px;
+    display: block;
+  }
+  .hero-social-bar a:hover {
+    color: #F5F5F5;
+  }
+
+  /* "Learn More" vertical text */
+  .hero-learn-more {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 0.25em;
+    font-size: 11px;
+    color: #A0A0A0;
+    text-transform: uppercase;
+    font-family: 'Geist Mono', monospace;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  .hero-learn-more:hover {
+    color: #F5F5F5;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 1023px) {
+    #home {
+      min-height: auto;
+    }
+    .hero-portrait-mask {
+      -webkit-mask-image:
+        linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+      mask-image:
+        linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+    }
+  }
+</style>
+<link data-kid="1" data-name="Lenis smooth-scroll stylesheet link" href="https://unpkg.com/lenis@1/dist/lenis.css" rel="stylesheet"/>
+<div class="min-h-screen bg-[var(--bg-ink)] text-[var(--text-paper)] font-sans selection:bg-[var(--text-paper)] selection:text-[var(--bg-ink)] overflow-x-clip" data-kid="2" data-name="portfolio root container" id="portfolio-root">
+    <!-- Top Scroll Progress Bar -->
+    <div class="fixed top-0 left-0 right-0 h-[2px] bg-[var(--border-iron)] z-50" data-kid="2-1" data-name="scroll progress track bar (fixed top)">
+        <div class="h-full bg-[var(--text-paper)] w-0" data-dynamic="true" data-kid="2-1-1" data-name="scroll progress fill bar" data-reason="width percent recomputed from scroll position by Lenis scroll handler" id="scroll-progress-bar">
+        </div>
+    </div>
+    <!-- Sticky Archival Dossier Navbar (Crisp White Header) -->
+    <header class="sticky top-0 z-40 bg-[#FFFFFF] backdrop-blur-md border-b border-[#E5E7EB] text-[#111827] shadow-xs" data-kid="2-2" data-name="sticky archival dossier navbar" id="main-header">
+        <div class="max-w-[1440px] mx-auto px-6 lg:px-12 h-16 grid grid-cols-12 items-center" data-kid="2-2-1" data-name="navbar 12-column layout grid">
+            <!-- Column 1-3: Archival ID & Name -->
+            <div class="col-span-6 lg:col-span-3 flex items-center gap-3" data-kid="2-2-1-1" data-name="navbar brand identity group">
+                <span class="w-2 h-2 rounded-full bg-[#111827] inline-block" data-kid="2-2-1-1-1" data-name="brand status dot indicator">
+                </span>
+                <a class="font-heading text-sm font-semibold tracking-tight text-[#111827] flex items-center gap-2" data-kid="2-2-1-1-2" data-name="site name and dossier ID link" href="#home">
+                    <span data-kid="2-2-1-1-2-1" data-name="site title name text">
+                        AYUSH KUMAR
+                    </span>
+                </a>
+            </div>
+            <!-- Column 4-9: Section Navigation -->
+            <nav aria-label="Dossier Navigation" class="hidden lg:flex col-span-6 items-center gap-7" data-kid="2-2-1-2" data-name="dossier section navigation">
+                <a class="nav-link font-mono text-[11px] text-[#111827] hover:text-[#000000] py-1 border-b border-[#111827]" data-kid="2-2-1-2-1" data-name="home nav link" data-nav="home" href="#home">
+                    01.HOME
+                </a>
+                <a class="nav-link font-mono text-[11px] text-[#6B7280] hover:text-[#111827] py-1 border-b border-transparent" data-kid="2-2-1-2-2" data-name="about nav link" data-nav="about" href="#about">
+                    02.ABOUT
+                </a>
+                <a class="nav-link font-mono text-[11px] text-[#6B7280] hover:text-[#111827] py-1 border-b border-transparent" data-kid="2-2-1-2-3" data-name="skills nav link" data-nav="skills" href="#skills">
+                    03.SKILLS
+                </a>
+                <a class="nav-link font-mono text-[11px] text-[#6B7280] hover:text-[#111827] py-1 border-b border-transparent" data-kid="2-2-1-2-4" data-name="projects nav link" data-nav="projects" href="#projects">
+                    04.PROJECTS
+                </a>
+                <a class="nav-link font-mono text-[11px] text-[#6B7280] hover:text-[#111827] py-1 border-b border-transparent" data-kid="2-2-1-2-5" data-name="experience nav link" data-nav="experience" href="#experience">
+                    05.EXPERIENCE
+                </a>
+                <a class="nav-link font-mono text-[11px] text-[#6B7280] hover:text-[#111827] py-1 border-b border-transparent" data-kid="2-2-1-2-6" data-name="contact nav link" data-nav="contact" href="#contact">
+                    06.CONTACT
+                </a>
+            </nav>
+            <!-- Column 10-12: Location + Theme Toggle + Resume Action -->
+            <div class="col-span-6 lg:col-span-3 flex items-center justify-end gap-3" data-kid="2-2-1-3" data-name="navbar right utility group">
+                <span class="hidden xl:inline-block font-mono text-[11px] text-[#4B5563] font-medium mr-2" data-kid="2-2-1-3-1" data-name="geographic coordinates label">
+                    Meerut, India
+                </span>
+                <a class="font-mono text-[11px] px-3.5 py-2 bg-[#111827] text-[#FFFFFF] font-medium hover:bg-[#1F2937] transition-colors flex items-center gap-1.5" data-kid="2-2-1-3-3" data-name="resume download link button" download="AK-1.pdf" href="AK-1.pdf">
+                    <span data-kid="2-2-1-3-3-1" data-name="resume filename label">
+                        AK-1.PDF
+                    </span>
+                    <span class="text-xs" data-kid="2-2-1-3-3-2" data-name="resume download icon wrapper">
+                        <i class="ti ti-download" data-kid="2-2-1-3-3-2-1" data-name="download icon">
+                        </i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-[1440px] mx-auto" data-kid="2-3" data-name="main content wrapper">
+        <!-- ==========================================
+         SECTION 1: CINEMATIC HERO — Editorial B&W Portrait
+         ========================================== -->
+        <section class="relative border-b border-[var(--border-iron)]" data-kid="2-3-1" data-name="hero cinematic section" id="home">
+            <!-- Hero Content: Full viewport, graphite background -->
+            <div class="relative min-h-screen flex items-center" style="background: #18191c;">
+
+                <!-- Left Social Bar (Desktop only) -->
+                <div class="hidden lg:flex flex-col items-center gap-5 absolute left-6 xl:left-10 bottom-16 z-20 hero-social-bar hero-text-reveal hero-text-delay-6">
+                    <div class="w-px h-8 bg-[#A0A0A0]/40"></div>
+                    <a href="https://github.com/ayushprajapati3002" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="ti ti-brand-github"></i></a>
+                    <a href="https://www.linkedin.com/in/ayush-kumar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
+                    <a href="mailto:ayush2003kumar19@gmail.com" aria-label="Email"><i class="ti ti-mail"></i></a>
+                </div>
+
+                <!-- Right "Learn More" (Desktop only) -->
+                <div class="hidden lg:flex flex-col items-center gap-4 absolute right-6 xl:right-10 bottom-16 z-20 hero-text-reveal hero-text-delay-6">
+                    <a href="#about" class="hero-learn-more">LEARN MORE</a>
+                    <span class="text-[#A0A0A0] text-xs">↓</span>
+                </div>
+
+                <!-- Main Hero Grid -->
+                <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-16 xl:px-20 grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-0 relative z-10 py-20 lg:py-0">
+
+                    <!-- LEFT: Text Content -->
+                    <div class="flex flex-col justify-center order-2 lg:order-1 lg:pr-12 xl:pr-20 -mt-6 lg:-mt-14">
+
+                        <!-- Name -->
+                        <h1 class="font-heading text-3xl sm:text-4xl lg:text-[44px] xl:text-[52px] font-medium tracking-[0.12em] text-[#F5F5F5] leading-[1.15] hero-text-reveal hero-text-delay-1" id="hero-name">
+                            AYUSH KUMAR
+                        </h1>
+
+                        <!-- Accent Rule -->
+                        <span class="hero-rule hero-text-reveal hero-text-delay-2"></span>
+
+                        <!-- Subtitle / Role -->
+                        <p class="font-sans text-sm sm:text-[15px] text-[#A0A0A0] tracking-[0.04em] leading-relaxed hero-text-reveal hero-text-delay-3" id="hero-subtitle">
+                            AI &amp; ML Engineer
+                        </p>
+
+                        <!-- Body Intro -->
+                        <p class="mt-6 text-[14px] sm:text-[15px] leading-[1.7] text-[#A0A0A0]/80 max-w-[52ch] hero-text-reveal hero-text-delay-4" id="hero-body">
+                            AI &amp; ML Engineer with ~1.5 years of hands-on production experience, including enterprise engineering at <strong class="text-[#F5F5F5] font-medium">Rashmi Metaliks Limited</strong>, and Computer Science graduate from <strong class="text-[#F5F5F5] font-medium">NIT Srinagar</strong>. Architecting production Generative AI systems, MCP conversational agents, and full-stack enterprise applications.
+                        </p>
+
+                        <!-- CTA Buttons -->
+                        <div class="mt-10 flex flex-wrap items-center gap-4 hero-text-reveal hero-text-delay-5">
+                            <a class="px-5 py-3 bg-[#F5F5F5] text-[#000000] font-mono text-[11px] font-medium tracking-wide hover:bg-[#E0E0E0] transition-colors duration-300 flex items-center gap-2" href="#projects">
+                                <span>View Projects</span>
+                                <i class="ti ti-arrow-down-right text-sm"></i>
+                            </a>
+                            <a class="px-5 py-3 border border-[#333333] text-[#A0A0A0] hover:text-[#F5F5F5] hover:border-[#F5F5F5] font-mono text-[11px] tracking-wide transition-all duration-300 flex items-center gap-2" download="AK-1.pdf" href="AK-1.pdf">
+                                <span>Download Resume</span>
+                                <i class="ti ti-download text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT: Cinematic Portrait -->
+                    <div class="flex justify-center lg:justify-end order-1 lg:order-2 relative" id="hero-portrait-wrapper">
+                        <!-- Studio Lighting Atmosphere Glow -->
+                        <div class="hero-studio-glow"></div>
+
+                        <figure class="relative w-full max-w-[520px] lg:max-w-none lg:w-full" id="hero-portrait-frame">
+                            <div class="hero-portrait-enter">
+                                <div class="hero-float-anim">
+                                    <div class="hero-portrait-mask overflow-hidden">
+                                        <img
+                                            id="hero-portrait-img"
+                                            src="headshot.png"
+                                            alt="Ayush Kumar — AI & ML Engineer portrait"
+                                            decoding="async"
+                                            loading="eager"
+                                            class="w-full h-auto lg:h-[90vh] lg:max-h-[800px] object-cover object-top transition-transform duration-700 ease-out hover:scale-[1.03]"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+
+                </div>
+
+                <!-- Bottom gradient fade to next section -->
+                <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[var(--bg-ink)] to-transparent pointer-events-none z-10"></div>
+
+            </div>
+        </section>
+        <!-- ==========================================
+         SECTION 2: ABOUT & CHRONOLOGY TIMELINE (#sidebar-form flipped)
+         ========================================== -->
+        <section class="border-b border-[var(--border-iron)]" data-kid="2-3-2" data-name="about and chronology section" id="about">
+            <!-- Horizon Wash Band Header -->
+            <div class="horizon-wash border-b border-[var(--border-iron)] px-6 lg:px-12 py-8" data-kid="2-3-2-1" data-name="about section horizon wash header">
+                <div class="grid grid-cols-1 lg:grid-cols-12 items-baseline gap-4" data-kid="2-3-2-1-1" data-name="header 12-column grid">
+                    <div class="lg:col-span-4 flex items-center gap-3" data-kid="2-3-2-1-1-1" data-name="section title group">
+                        <span class="bracket-numeral font-mono text-[11px] text-[var(--text-slate)]" data-kid="2-3-2-1-1-1-1" data-name="bracketed section numeral 02">
+                            02
+                        </span>
+                        <h2 class="font-heading text-[28px] lg:text-[32px] font-medium tracking-tight text-[var(--text-paper)]" data-kid="2-3-2-1-1-1-2" data-name="about section heading">
+                            About & Chronology
+                        </h2>
+                    </div>
+                    <div class="lg:col-span-8 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-[var(--text-slate)]" data-kid="2-3-2-1-1-2" data-name="section header metadata group">
+                        <span data-kid="2-3-2-1-1-2-1" data-name="ledger verification note">
+                            VERIFIED ACADEMIC & PRODUCTION LEDGER
+                        </span>
+                        <span data-kid="2-3-2-1-1-2-2" data-name="time span note">
+                            SPAN: APR 2017 — JUN 2026
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- Flipped Sidebar Layout: Left 4 cols = Strict Stacked Stat Blocks, Right 8 cols = Prose + Ledger Timeline -->
+            <div class="grid grid-cols-1 lg:grid-cols-12" data-kid="2-3-2-2" data-name="flipped sidebar layout grid">
+                <!-- Left Sidebar Column: 4 Core Verified Stat Blocks Distributed Across Column Height -->
+                <aside class="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-[#202026] bg-[#0c0c0e] divide-y divide-[#202026] flex flex-col justify-between" data-kid="2-3-2-2-1" data-name="left sidebar stat blocks column">
+                    <!-- Stat 1 -->
+                    <div class="p-6 lg:p-8 flex-1 flex flex-col justify-between transition-colors duration-300 hover:bg-[#121216] group" data-kid="2-3-2-2-1-1" data-name="stat block tenure">
+                        <div class="flex items-center justify-between font-mono text-[11px] text-[#A0A0A0]" data-kid="2-3-2-2-1-1-1" data-name="stat metric label row">
+                            <span data-kid="2-3-2-2-1-1-1-1" data-name="stat metric identifier">
+                                METRIC_01 // TENURE
+                            </span>
+                            <span class="text-[#707078] group-hover:text-[#A0A0A0] transition-colors" data-kid="2-3-2-2-1-1-1-2" data-name="stat date range">
+                                JAN 2025 – JUN 2026
+                            </span>
+                        </div>
+                        <div class="my-3 font-heading text-4xl lg:text-5xl font-medium text-[#F5F5F5] tracking-tight group-hover:translate-x-1 transition-transform duration-300" data-kid="2-3-2-2-1-1-2" data-name="stat large tenure value">
+                            ~1.5 Yrs
+                        </div>
+                        <div data-kid="2-3-2-2-1-1-3" data-name="stat detail block">
+                            <div class="text-sm font-medium text-[#F5F5F5]" data-kid="2-3-2-2-1-1-3-1" data-name="stat detail title">
+                                Professional Experience
+                            </div>
+                            <div class="mt-1 font-mono text-[11px] text-[#A0A0A0]" data-kid="2-3-2-2-1-1-3-2" data-name="stat detail subtitle">
+                                Rashmi Metaliks Limited · AI &amp; ML Engineer
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Stat 2 -->
+                    <div class="p-6 lg:p-8 flex-1 flex flex-col justify-between transition-colors duration-300 hover:bg-[#121216] group" data-kid="2-3-2-2-1-2" data-name="stat block production AI">
+                        <div class="flex items-center justify-between font-mono text-[11px] text-[#A0A0A0]" data-kid="2-3-2-2-1-2-1" data-name="stat metric label row">
+                            <span data-kid="2-3-2-2-1-2-1-1" data-name="stat metric identifier">
+                                METRIC_02 // PRODUCTION AI
+                            </span>
+                            <span class="text-[#707078] group-hover:text-[#A0A0A0] transition-colors" data-kid="2-3-2-2-1-2-1-2" data-name="stat deployed tag">
+                                ENTERPRISE DEPLOYED
+                            </span>
+                        </div>
+                        <div class="my-3 font-heading text-4xl lg:text-5xl font-medium text-[#F5F5F5] tracking-tight group-hover:translate-x-1 transition-transform duration-300" data-kid="2-3-2-2-1-2-2" data-name="stat large count value">
+                            2
+                        </div>
+                        <div data-kid="2-3-2-2-1-2-3" data-name="stat detail block">
+                            <div class="text-sm font-medium text-[#F5F5F5]" data-kid="2-3-2-2-1-2-3-1" data-name="stat detail title">
+                                AI-Powered Applications
+                            </div>
+                            <div class="mt-1 font-mono text-[11px] text-[#A0A0A0]" data-kid="2-3-2-2-1-2-3-2" data-name="stat detail subtitle">
+                                PipelineFlow CRM &amp; HireGem ATS
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Stat 3 -->
+                    <div class="p-6 lg:p-8 flex-1 flex flex-col justify-between transition-colors duration-300 hover:bg-[#121216] group" data-kid="2-3-2-2-1-3" data-name="stat block stack breadth">
+                        <div class="flex items-center justify-between font-mono text-[11px] text-[#A0A0A0]" data-kid="2-3-2-2-1-3-1" data-name="stat metric label row">
+                            <span data-kid="2-3-2-2-1-3-1-1" data-name="stat metric identifier">
+                                METRIC_03 // STACK BREADTH
+                            </span>
+                            <span class="text-[#707078] group-hover:text-[#A0A0A0] transition-colors" data-kid="2-3-2-2-1-3-1-2" data-name="stat verified tag">
+                                RESUME VERIFIED
+                            </span>
+                        </div>
+                        <div class="my-3 font-heading text-4xl lg:text-5xl font-medium text-[#F5F5F5] tracking-tight group-hover:translate-x-1 transition-transform duration-300" data-kid="2-3-2-2-1-3-2" data-name="stat large count value">
+                            10+
+                        </div>
+                        <div data-kid="2-3-2-2-1-3-3" data-name="stat detail block">
+                            <div class="text-sm font-medium text-[#F5F5F5]" data-kid="2-3-2-2-1-3-3-1" data-name="stat detail title">
+                                Core Technologies &amp; Frameworks
+                            </div>
+                            <div class="mt-1 font-mono text-[11px] text-[#A0A0A0]" data-kid="2-3-2-2-1-3-3-2" data-name="stat detail subtitle">
+                                Python, JS, SQL, React, Node, Prisma, MCP
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Stat 4 -->
+                    <div class="p-6 lg:p-8 flex-1 flex flex-col justify-between transition-colors duration-300 hover:bg-[#121216] group" data-kid="2-3-2-2-1-4" data-name="stat block architecture">
+                        <div class="flex items-center justify-between font-mono text-[11px] text-[#A0A0A0]" data-kid="2-3-2-2-1-4-1" data-name="stat metric label row">
+                            <span data-kid="2-3-2-2-1-4-1-1" data-name="stat metric identifier">
+                                METRIC_04 // ARCHITECTURE
+                            </span>
+                            <span class="text-[#707078] group-hover:text-[#A0A0A0] transition-colors" data-kid="2-3-2-2-1-4-1-2" data-name="stat ownership tag">
+                                END-TO-END OWNERSHIP
+                            </span>
+                        </div>
+                        <div class="my-3 font-heading text-4xl lg:text-5xl font-medium text-[#F5F5F5] tracking-tight group-hover:translate-x-1 transition-transform duration-300" data-kid="2-3-2-2-1-4-2" data-name="stat large count value">
+                            2
+                        </div>
+                        <div data-kid="2-3-2-2-1-4-3" data-name="stat detail block">
+                            <div class="text-sm font-medium text-[#F5F5F5]" data-kid="2-3-2-2-1-4-3-1" data-name="stat detail title">
+                                Full-Stack Enterprise Systems
+                            </div>
+                            <div class="mt-1 font-mono text-[11px] text-[#A0A0A0]" data-kid="2-3-2-2-1-4-3-2" data-name="stat detail subtitle">
+                                PostgreSQL + Express + React + LLM Agents
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <!-- Right Wide Column: Multi-paragraph Bio + Financial Ledger Chronology -->
+                <div class="lg:col-span-8 p-6 lg:p-12 flex flex-col justify-between bg-[#08080a]" data-kid="2-3-2-2-2" data-name="bio and timeline right column">
+                    <!-- Bio Prose in 68ch Measure -->
+                    <div class="max-w-[68ch] space-y-5" data-kid="2-3-2-2-2-1" data-name="bio prose block">
+                        <h3 class="font-heading text-xl lg:text-2xl font-medium text-[#F5F5F5] tracking-tight leading-snug" data-kid="2-3-2-2-2-1-1" data-name="bio headline statement">
+                            Engineering autonomous AI workflows grounded in deterministic full-stack systems.
+                        </h3>
+                        <p class="text-[15px] leading-[1.7] text-[#A0A0A0]" data-kid="2-3-2-2-2-1-2" data-name="bio first paragraph">
+                            Based in Meerut, India, I specialize in bridging the gap between foundational Large Language Models and high-reliability enterprise software. With hands-on experience engineering production systems at Rashmi Metaliks Limited, my expertise spans designing AI agents capable of executing structured CRUD tool calls, orchestrating Model Context Protocol (MCP) conversational interfaces, and automating high-volume document ingestion pipelines.
+                        </p>
+                        <p class="text-[15px] leading-[1.7] text-[#A0A0A0]" data-kid="2-3-2-2-2-1-3" data-name="bio second paragraph">
+                            Trained in Computer Science &amp; Engineering at the National Institute of Technology (NIT) Srinagar (GPA: 7.46) with a strong foundation from Jawahar Navodaya Vidyalaya, Kathua, I approach every product from both sides of the stack: schema design in PostgreSQL and Prisma, API orchestration in Node.js and Express.js, reactive interfaces in React.js, and intelligent reasoning layers powered by Gemini and Python NLP heuristics.
+                        </p>
+                    </div>
+                    <!-- Financial Ledger Chronology Timeline -->
+                    <div class="mt-12 pt-10 border-t border-[#202026]" data-kid="2-3-2-2-2-2" data-name="education and career ledger block">
+                        <div class="flex items-center justify-between mb-8" data-kid="2-3-2-2-2-2-1" data-name="ledger header row">
+                            <h3 class="font-heading text-lg font-medium text-[#F5F5F5]" data-kid="2-3-2-2-2-2-1-1" data-name="ledger section heading">
+                                Chronological Education &amp; Career Ledger
+                            </h3>
+                            <span class="font-mono text-[11px] text-[#A0A0A0]" data-kid="2-3-2-2-2-2-1-2" data-name="ledger score note">
+                                EXACT SCORES // UNCONVERTED
+                            </span>
+                        </div>
+                        <div class="space-y-4" data-kid="2-3-2-2-2-2-2" data-name="ledger entries list">
+                            <!-- Entry 1: Rashmi Metaliks Limited -->
+                            <div class="group grid grid-cols-1 sm:grid-cols-12 items-baseline gap-2 sm:gap-4 p-4 rounded-none border border-[#202026] bg-[#0c0c0e] hover:border-[#383842] hover:bg-[#121216] transition-all duration-300" data-kid="2-3-2-2-2-2-2-1" data-name="ledger entry - Rashmi Metaliks">
+                                <div class="sm:col-span-3 font-mono text-[11px] text-[#A0A0A0] flex items-center gap-2" data-kid="2-3-2-2-2-2-2-1-1" data-name="entry date and marker column">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#707078]" data-kid="2-3-2-2-2-2-2-1-1-1" data-name="entry active status dot">
+                                    </span>
+                                    <span data-kid="2-3-2-2-2-2-2-1-1-2" data-name="entry date range text">
+                                        JAN 2025 – JUN 2026
+                                    </span>
+                                </div>
+                                <div class="sm:col-span-9" data-kid="2-3-2-2-2-2-2-1-2" data-name="entry content column">
+                                    <div class="flex flex-wrap items-baseline justify-between gap-2" data-kid="2-3-2-2-2-2-2-1-2-1" data-name="entry title row">
+                                        <h4 class="font-heading text-base font-medium text-[#F5F5F5] group-hover:text-white transition-colors" data-kid="2-3-2-2-2-2-2-1-2-1-1" data-name="entry organization name">
+                                            <a href="https://www.rashmimetaliks.com/" target="_blank" rel="noopener noreferrer" class="hover:underline inline-flex items-center gap-1.5 text-[#F5F5F5] hover:text-white transition-colors">
+                                                Rashmi Metaliks Limited
+                                                <i class="ti ti-arrow-up-right text-xs text-[#A0A0A0]"></i>
+                                            </a>
+                                        </h4>
+                                        <span class="cut-corner-badge bg-[#18181c] border border-[#2e2e38] px-2.5 py-0.5 font-mono text-[11px] text-[#F5F5F5]" data-kid="2-3-2-2-2-2-2-1-2-1-2" data-name="entry role badge">
+                                            AI &amp; ML ENGINEER (EXPERIENCE)
+                                        </span>
+                                    </div>
+                                    <p class="mt-2 text-sm text-[#A0A0A0] leading-relaxed" data-kid="2-3-2-2-2-2-2-1-2-2" data-name="entry description paragraph">
+                                        Architected and deployed two flagship production systems:
+                                        <a href="https://crm.rashmimetaliks.com/" target="_blank" rel="noopener noreferrer" class="text-[#F5F5F5] font-medium underline underline-offset-4 decoration-[#707078] hover:decoration-white transition-colors inline-flex items-center gap-1" data-kid="2-3-2-2-2-2-2-1-2-2-1" data-name="highlighted project name">
+                                            PipelineFlow CRM
+                                            <i class="ti ti-arrow-up-right text-[10px] text-[#A0A0A0]"></i>
+                                        </a>
+                                        (Jan 2025 – Oct 2025) utilizing Gemini 3.5 Flash, MCP chatbot, and GPS tracking; and
+                                        <a href="https://ats.rashmimetaliks.com/" target="_blank" rel="noopener noreferrer" class="text-[#F5F5F5] font-medium underline underline-offset-4 decoration-[#707078] hover:decoration-white transition-colors inline-flex items-center gap-1" data-kid="2-3-2-2-2-2-2-1-2-2-2" data-name="highlighted project name">
+                                            HireGem ATS
+                                            <i class="ti ti-arrow-up-right text-[10px] text-[#A0A0A0]"></i>
+                                        </a>
+                                        (Nov 2025 – Jun 2026) featuring NLP resume parsing across 500+ domain heuristics and an automated IMAP pipeline processing 1,000+ applications.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Entry 2: NIT Srinagar -->
+                            <div class="group grid grid-cols-1 sm:grid-cols-12 items-baseline gap-2 sm:gap-4 p-4 rounded-none border border-[#202026] bg-[#0c0c0e] hover:border-[#383842] hover:bg-[#121216] transition-all duration-300" data-kid="2-3-2-2-2-2-2-2" data-name="ledger entry - NIT Srinagar">
+                                <div class="sm:col-span-3 font-mono text-[11px] text-[#A0A0A0] flex items-center gap-2" data-kid="2-3-2-2-2-2-2-2-1" data-name="entry date and marker column">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#707078]" data-kid="2-3-2-2-2-2-2-2-1-1" data-name="entry status dot">
+                                    </span>
+                                    <span data-kid="2-3-2-2-2-2-2-2-1-2" data-name="entry date range text">
+                                        MAR 2021 – JUL 2025
+                                    </span>
+                                </div>
+                                <div class="sm:col-span-9" data-kid="2-3-2-2-2-2-2-2-2" data-name="entry content column">
+                                    <div class="flex flex-wrap items-baseline justify-between gap-2" data-kid="2-3-2-2-2-2-2-2-2-1" data-name="entry title row">
+                                        <h4 class="font-heading text-base font-medium text-[#F5F5F5] group-hover:text-white transition-colors" data-kid="2-3-2-2-2-2-2-2-2-1-1" data-name="entry institution name">
+                                            National Institute of Technology (NIT), Srinagar
+                                        </h4>
+                                        <span class="cut-corner-badge bg-[#18181c] border border-[#2e2e38] px-2.5 py-0.5 font-mono text-[11px] text-[#F5F5F5]" data-kid="2-3-2-2-2-2-2-2-2-1-2" data-name="entry GPA badge">
+                                            GPA: 7.46
+                                        </span>
+                                    </div>
+                                    <p class="mt-1 font-mono text-[11px] text-[#A0A0A0]" data-kid="2-3-2-2-2-2-2-2-2-2" data-name="entry degree line">
+                                        B.Tech in Computer Science &amp; Engineering (CSE)
+                                    </p>
+                                    <p class="mt-1.5 text-sm text-[#707078] leading-relaxed" data-kid="2-3-2-2-2-2-2-2-2-3" data-name="entry coursework line">
+                                        Core coursework in Data Structures &amp; Algorithms, Database Management Systems, Object-Oriented Programming, Operating Systems, and Computer Networks.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Entry 3: JNV Kathua Class 12 -->
+                            <div class="group grid grid-cols-1 sm:grid-cols-12 items-baseline gap-2 sm:gap-4 p-4 rounded-none border border-[#202026] bg-[#0c0c0e] hover:border-[#383842] hover:bg-[#121216] transition-all duration-300" data-kid="2-3-2-2-2-2-2-3" data-name="ledger entry - JNV Class 12">
+                                <div class="sm:col-span-3 font-mono text-[11px] text-[#A0A0A0] flex items-center gap-2" data-kid="2-3-2-2-2-2-2-3-1" data-name="entry date and marker column">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#707078]" data-kid="2-3-2-2-2-2-2-3-1-1" data-name="entry status dot">
+                                    </span>
+                                    <span data-kid="2-3-2-2-2-2-2-3-1-2" data-name="entry date range text">
+                                        JUN 2019 – JUN 2020
+                                    </span>
+                                </div>
+                                <div class="sm:col-span-9" data-kid="2-3-2-2-2-2-2-3-2" data-name="entry content column">
+                                    <div class="flex flex-wrap items-baseline justify-between gap-2" data-kid="2-3-2-2-2-2-2-3-2-1" data-name="entry title row">
+                                        <h4 class="font-heading text-base font-medium text-[#F5F5F5] group-hover:text-white transition-colors" data-kid="2-3-2-2-2-2-2-3-2-1-1" data-name="entry school name">
+                                            Jawahar Navodaya Vidyalaya, Kathua
+                                        </h4>
+                                        <span class="cut-corner-badge bg-[#18181c] border border-[#2e2e38] px-2.5 py-0.5 font-mono text-[11px] text-[#F5F5F5]" data-kid="2-3-2-2-2-2-2-3-2-1-2" data-name="entry percentage badge">
+                                            PERCENTAGE: 90%
+                                        </span>
+                                    </div>
+                                    <p class="mt-1 font-mono text-[11px] text-[#A0A0A0]" data-kid="2-3-2-2-2-2-2-3-2-2" data-name="entry stream line">
+                                        Higher Secondary Education (Non-Medical)
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Entry 4: JNV Kathua Class 10 -->
+                            <div class="group grid grid-cols-1 sm:grid-cols-12 items-baseline gap-2 sm:gap-4 p-4 rounded-none border border-[#202026] bg-[#0c0c0e] hover:border-[#383842] hover:bg-[#121216] transition-all duration-300" data-kid="2-3-2-2-2-2-2-4" data-name="ledger entry - JNV Class 10">
+                                <div class="sm:col-span-3 font-mono text-[11px] text-[#A0A0A0] flex items-center gap-2" data-kid="2-3-2-2-2-2-2-4-1" data-name="entry date and marker column">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#707078]" data-kid="2-3-2-2-2-2-2-4-1-1" data-name="entry status dot">
+                                    </span>
+                                    <span data-kid="2-3-2-2-2-2-2-4-1-2" data-name="entry date range text">
+                                        APR 2017 – APR 2018
+                                    </span>
+                                </div>
+                                <div class="sm:col-span-9" data-kid="2-3-2-2-2-2-2-4-2" data-name="entry content column">
+                                    <div class="flex flex-wrap items-baseline justify-between gap-2" data-kid="2-3-2-2-2-2-2-4-2-1" data-name="entry title row">
+                                        <h4 class="font-heading text-base font-medium text-[#F5F5F5] group-hover:text-white transition-colors" data-kid="2-3-2-2-2-2-2-4-2-1-1" data-name="entry school name">
+                                            Jawahar Navodaya Vidyalaya, Kathua
+                                        </h4>
+                                        <span class="cut-corner-badge bg-[#18181c] border border-[#2e2e38] px-2.5 py-0.5 font-mono text-[11px] text-[#F5F5F5]" data-kid="2-3-2-2-2-2-2-4-2-1-2" data-name="entry percentage badge">
+                                            PERCENTAGE: 78.4%
+                                        </span>
+                                    </div>
+                                    <p class="mt-1 font-mono text-[11px] text-[#A0A0A0]" data-kid="2-3-2-2-2-2-2-4-2-2" data-name="entry examination line">
+                                        Senior Secondary Education
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ==========================================
+         SECTION 3: TECHNICAL SKILLS (#answer-first Query Interface)
+         ========================================== -->
+        <section class="border-b border-[var(--border-iron)]" data-kid="2-3-3" data-name="technical skills section" id="skills">
+            <!-- Horizon Wash Band Header -->
+            <div class="horizon-wash border-b border-[var(--border-iron)] px-6 lg:px-12 py-8" data-kid="2-3-3-1" data-name="skills section horizon wash header">
+                <div class="grid grid-cols-1 lg:grid-cols-12 items-baseline gap-4" data-kid="2-3-3-1-1" data-name="header 12-column grid">
+                    <div class="lg:col-span-5 flex items-center gap-3" data-kid="2-3-3-1-1-1" data-name="section title group">
+                        <span class="bracket-numeral font-mono text-[11px] text-[var(--text-slate)]" data-kid="2-3-3-1-1-1-1" data-name="bracketed section numeral 03">
+                            03
+                        </span>
+                        <h2 class="font-heading text-[28px] lg:text-[32px] font-medium tracking-tight text-[var(--text-paper)]" data-kid="2-3-3-1-1-1-2" data-name="skills section heading">
+                            Technical Skills Index
+                        </h2>
+                    </div>
+                    <div class="lg:col-span-7 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-[var(--text-ash)]" data-kid="2-3-3-1-1-2" data-name="section header metadata group">
+                        <span data-kid="2-3-3-1-1-2-1" data-name="domains and capabilities count">
+                            QUERY MODE // 8 VERIFIED DOMAINS · 23 CAPABILITIES
+                        </span>
+                        <span data-kid="2-3-3-1-1-2-2" data-name="resume verified note">
+                            RESUME-VERIFIED INDEX
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="p-6 lg:p-12 bg-[#08080a]" data-kid="2-3-3-2" data-name="skills content wrapper">
+                <!-- Simulated Search / Query Prompt Bar + Domain Tabs -->
+                <div class="bg-[#0c0c0e] border border-[#202026] p-4 lg:p-6" data-kid="2-3-3-2-1" data-name="query interface and filter panel">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#202026]" data-kid="2-3-3-2-1-1" data-name="SQL query prompt bar row">
+                        <div class="flex items-center gap-3 font-mono text-xs text-[#F5F5F5]" data-kid="2-3-3-2-1-1-1" data-name="SQL query text group">
+                            <span class="text-base text-[#707078]" data-kid="2-3-3-2-1-1-1-1" data-name="terminal prompt icon wrapper">
+                                <i class="ti ti-terminal-2" data-kid="2-3-3-2-1-1-1-1-1" data-name="terminal icon">
+                                </i>
+                            </span>
+                            <span class="text-[#A0A0A0]" data-kid="2-3-3-2-1-1-1-2" data-name="SQL query prefix text">
+                                SELECT * FROM capabilities WHERE domain =
+                            </span>
+                            <span class="px-2 py-0.5 bg-[#141418] border border-[#202026] text-[#F5F5F5]" data-dynamic="true" data-kid="2-3-3-2-1-1-1-3" data-name="active query domain value" data-reason="textContent replaced with selected domain query by renderSkills on tab click" id="active-skill-query-label">
+                                'ALL_DOMAINS'
+                            </span>
+                        </div>
+                        <div class="font-mono text-[11px] text-[#A0A0A0]" data-kid="2-3-3-2-1-1-2" data-name="records returned counter group">
+                            <span data-dynamic="true" data-kid="2-3-3-2-1-1-2-1" data-name="results count number" data-reason="textContent replaced with filtered skill count by renderSkills on tab click" id="skill-result-count">
+                                23
+                            </span>
+                            RECORDS RETURNED
+                        </div>
+                    </div>
+                    <!-- Category Filter Query Tabs -->
+                    <div aria-label="Skill category filter" class="mt-4 flex flex-wrap gap-2" data-kid="2-3-3-2-1-2" data-name="skill category filter tablist" id="skill-tabs-container" role="tablist">
+                        <button class="skill-tab-btn px-3 py-1.5 font-mono text-[11px] border border-[#F5F5F5] bg-[#F5F5F5] text-[#000000] font-medium tracking-wide cursor-pointer" data-dynamic="true" data-kid="2-3-3-2-1-2-1" data-name="all skills filter tab" data-reason="className rewritten by JS to toggle active/inactive tab styling" data-skill-cat="all" type="button">
+                            ALL (23)
+                        </button>
+                        <button class="skill-tab-btn px-3 py-1.5 font-mono text-[11px] border border-[#202026] bg-[#0c0c0e] text-[#A0A0A0] hover:text-[#F5F5F5] hover:border-[#383842] transition-colors cursor-pointer" data-dynamic="true" data-kid="2-3-3-2-1-2-2" data-name="languages filter tab" data-reason="className rewritten by JS to toggle active/inactive tab styling" data-skill-cat="languages" type="button">
+                            01. LANGUAGES (3)
+                        </button>
+                        <button class="skill-tab-btn px-3 py-1.5 font-mono text-[11px] border border-[#202026] bg-[#0c0c0e] text-[#A0A0A0] hover:text-[#F5F5F5] hover:border-[#383842] transition-colors cursor-pointer" data-dynamic="true" data-kid="2-3-3-2-1-2-3" data-name="frontend filter tab" data-reason="className rewritten by JS to toggle active/inactive tab styling" data-skill-cat="frontend" type="button">
+                            02. FRONTEND (1)
+                        </button>
+                        <button class="skill-tab-btn px-3 py-1.5 font-mono text-[11px] border border-[#202026] bg-[#0c0c0e] text-[#A0A0A0] hover:text-[#F5F5F5] hover:border-[#383842] transition-colors cursor-pointer" data-dynamic="true" data-kid="2-3-3-2-1-2-4" data-name="backend filter tab" data-reason="className rewritten by JS to toggle active/inactive tab styling" data-skill-cat="backend" type="button">
+                            03. BACKEND (2)
+                        </button>
+                        <button class="skill-tab-btn px-3 py-1.5 font-mono text-[11px] border border-[#202026] bg-[#0c0c0e] text-[#A0A0A0] hover:text-[#F5F5F5] hover:border-[#383842] transition-colors cursor-pointer" data-dynamic="true" data-kid="2-3-3-2-1-2-5" data-name="databases filter tab" data-reason="className rewritten by JS to toggle active/inactive tab styling" data-skill-cat="database" type="button">
+                            04. DATABASES &amp; DATA (2)
+                        </button>
+                        <button class="skill-tab-btn px-3 py-1.5 font-mono text-[11px] border border-[#202026] bg-[#0c0c0e] text-[#A0A0A0] hover:text-[#F5F5F5] hover:border-[#383842] transition-colors cursor-pointer" data-dynamic="true" data-kid="2-3-3-2-1-2-6" data-name="ai-ml filter tab" data-reason="className rewritten by JS to toggle active/inactive tab styling" data-skill-cat="aiml" type="button">
+                            05. AI / ML / GENAI (4)
+                        </button>
+                        <button class="skill-tab-btn px-3 py-1.5 font-mono text-[11px] border border-[#202026] bg-[#0c0c0e] text-[#A0A0A0] hover:text-[#F5F5F5] hover:border-[#383842] transition-colors cursor-pointer" data-dynamic="true" data-kid="2-3-3-2-1-2-7" data-name="llms-rag filter tab" data-reason="className rewritten by JS to toggle active/inactive tab styling" data-skill-cat="llm" type="button">
+                            06. LLMS, RAG &amp; AGENTS (4)
+                        </button>
+                        <button class="skill-tab-btn px-3 py-1.5 font-mono text-[11px] border border-[#202026] bg-[#0c0c0e] text-[#A0A0A0] hover:text-[#F5F5F5] hover:border-[#383842] transition-colors cursor-pointer" data-dynamic="true" data-kid="2-3-3-2-1-2-8" data-name="dev-tools filter tab" data-reason="className rewritten by JS to toggle active/inactive tab styling" data-skill-cat="tools" type="button">
+                            07. DEV TOOLS &amp; CLOUD (2)
+                        </button>
+                        <button class="skill-tab-btn px-3 py-1.5 font-mono text-[11px] border border-[#202026] bg-[#0c0c0e] text-[#A0A0A0] hover:text-[#F5F5F5] hover:border-[#383842] transition-colors cursor-pointer" data-dynamic="true" data-kid="2-3-3-2-1-2-9" data-name="core-cs filter tab" data-reason="className rewritten by JS to toggle active/inactive tab styling" data-skill-cat="cs" type="button">
+                            08. CORE CS CONCEPTS (5)
+                        </button>
+                    </div>
+                </div>
+                <!-- Answer-First Synthesized Panel -->
+                <div class="mt-6 bg-[#0c0c0e] border border-[#202026] p-6 lg:p-8" data-kid="2-3-3-2-2" data-name="answer-first synthesis panel">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start pb-6 border-b border-[#202026]" data-kid="2-3-3-2-2-1" data-name="synthesis header grid">
+                        <div class="lg:col-span-4" data-kid="2-3-3-2-2-1-1" data-name="synthesis title column">
+                            <div class="flex items-center gap-2 font-mono text-[11px] text-[#707078]" data-kid="2-3-3-2-2-1-1-1" data-name="synthesis label row">
+                                <span class="w-2 h-2 rounded-full bg-[#F5F5F5] shadow-[0_0_8px_rgba(245,245,245,0.6)]" data-kid="2-3-3-2-2-1-1-1-1" data-name="synthesis status dot">
+                                </span>
+                                <span data-kid="2-3-3-2-2-1-1-1-2" data-name="synthesis label text">
+                                    SYNTHESIZED DOMAIN BRIEF
+                                </span>
+                            </div>
+                            <h3 class="mt-2 font-heading text-xl font-medium text-[#F5F5F5]" data-dynamic="true" data-kid="2-3-3-2-2-1-1-2" data-name="synthesis heading title" data-reason="textContent replaced with domain title by renderSkills on tab click" id="skill-synthesis-title">
+                                Complete Full-Stack &amp; Applied AI Matrix
+                            </h3>
+                        </div>
+                        <div class="lg:col-span-8" data-kid="2-3-3-2-2-1-2" data-name="synthesis description column">
+                            <p class="text-[15px] leading-[1.7] text-[#A0A0A0] max-w-[68ch]" data-dynamic="true" data-kid="2-3-3-2-2-1-2-1" data-name="synthesis description text" data-reason="textContent replaced with domain description by renderSkills on tab click" id="skill-synthesis-desc">
+                                Spanning 8 verified technical domains from low-level Computer Science fundamentals (DSA, OS, DBMS) to modern full-stack application engineering (React.js, Node.js, Express.js, PostgreSQL, Prisma) and autonomous Generative AI orchestration (LLMs, RAG, AI Agents, and Model Context Protocol).
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Ruled Domain-Grouped Capability Matrix & Outer-Stroke Skill Chips -->
+                    <div class="mt-6 divide-y divide-[#202026] border-t border-[#202026]" data-dynamic="true" data-kid="2-3-3-2-2-2" data-name="skill capability chip grid" data-reason="innerHTML replaced with filtered skill domain rows by renderSkills on load and tab click" id="skills-chip-grid">
+                        <!-- Populated dynamically and initialized on load -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ==========================================
+         SECTION 4: MY PROJECTS (#projects)
+         ========================================== -->
+        <section class="border-b border-[var(--border-iron)]" data-kid="2-3-4" data-name="projects section" id="projects">
+            <!-- Horizon Wash Band Header -->
+            <div class="horizon-wash border-b border-[var(--border-iron)] px-6 lg:px-12 py-8" data-kid="2-3-4-1" data-name="projects section horizon wash header">
+                <div class="grid grid-cols-1 lg:grid-cols-12 items-baseline gap-4" data-kid="2-3-4-1-1" data-name="header 12-column grid">
+                    <div class="lg:col-span-4 flex items-center gap-3" data-kid="2-3-4-1-1-1" data-name="section title group">
+                        <span class="bracket-numeral font-mono text-[11px] text-[var(--text-slate)]" data-kid="2-3-4-1-1-1-1" data-name="bracketed section numeral 04">
+                            04
+                        </span>
+                        <h2 class="font-heading text-[28px] lg:text-[32px] font-medium tracking-tight text-[var(--text-paper)]" data-kid="2-3-4-1-1-1-2" data-name="projects section heading">
+                            My Projects
+                        </h2>
+                    </div>
+                    <div class="lg:col-span-8 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-[var(--text-slate)]" data-kid="2-3-4-1-1-2" data-name="section header metadata group">
+                        <span data-kid="2-3-4-1-1-2-1" data-name="projects count note">
+                            STATUS: UNDER CURATION // COMING SOON
+                        </span>
+                        <span data-kid="2-3-4-1-1-2-2" data-name="click-to-inspect note">
+                            INDEX: 00 ENTRIES
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty Projects Display Card -->
+            <div class="p-6 lg:p-16 bg-[#08080a]" data-kid="2-3-4-3" data-name="projects empty container">
+                <div class="max-w-2xl mx-auto p-8 lg:p-12 bg-[#0c0c0e] border border-[#202026] text-center flex flex-col items-center">
+                    <div class="w-12 h-12 rounded-full border border-[#202026] bg-[#121216] flex items-center justify-center text-[#707078] mb-4">
+                        <i class="ti ti-folder-code text-xl"></i>
+                    </div>
+                    <span class="font-mono text-[11px] text-[#707078] tracking-widest uppercase">
+                        ARCHIVE // IN PROGRESS
+                    </span>
+                    <h3 class="mt-2 font-heading text-xl lg:text-2xl font-medium text-[#F5F5F5]">
+                        Projects Section Empty
+                    </h3>
+                    <p class="mt-3 text-sm text-[#A0A0A0] leading-relaxed max-w-md">
+                        Project dossiers, live demonstrations, and technical specifications are currently being updated and will be published here soon.
+                    </p>
+                    <div class="mt-6 pt-6 border-t border-[#202026] w-full flex items-center justify-center gap-2 font-mono text-[11px] text-[#707078]">
+                        <span class="w-2 h-2 rounded-full bg-amber-400/80 animate-pulse"></span>
+                        <span>CHECK BACK SOON FOR UPDATED SHOWCASES</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ==========================================
+         SECTION 5: FLAGSHIP EXPERIENCE DEEP DIVES (#split-comparison)
+         ========================================== -->
+        <section class="border-b border-[var(--border-iron)]" data-kid="2-3-5" data-name="experience deep dives section" id="experience">
+            <!-- Horizon Wash Band Header -->
+            <div class="horizon-wash border-b border-[var(--border-iron)] px-6 lg:px-12 py-8" data-kid="2-3-5-1" data-name="experience section horizon wash header">
+                <div class="grid grid-cols-1 lg:grid-cols-12 items-baseline gap-4" data-kid="2-3-5-1-1" data-name="header 12-column grid">
+                    <div class="lg:col-span-6 flex items-center gap-3" data-kid="2-3-5-1-1-1" data-name="section title group">
+                        <span class="bracket-numeral font-mono text-[11px] text-[var(--text-slate)]" data-kid="2-3-5-1-1-1-1" data-name="bracketed section numeral 05">
+                            05
+                        </span>
+                        <h2 class="font-heading text-[28px] lg:text-[32px] font-medium tracking-tight text-[var(--text-paper)]" data-kid="2-3-5-1-1-1-2" data-name="experience section heading">
+                            AI-Powered Applications <a href="https://www.rashmimetaliks.com/" target="_blank" rel="noopener noreferrer" class="text-[var(--text-paper)] hover:text-white underline underline-offset-4 decoration-[#707078] hover:decoration-white transition-colors inline-flex items-center gap-1.5">Rashmi Metaliks Limited <i class="ti ti-arrow-up-right text-lg text-[#A0A0A0]"></i></a>
+                        </h2>
+                    </div>
+                    <div class="lg:col-span-6 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-[var(--text-slate)]" data-kid="2-3-5-1-1-2" data-name="section header metadata group">
+                        <span data-kid="2-3-5-1-1-2-1" data-name="role metadata text">
+                            ROLE: AI & ML ENGINEER (EXPERIENCE)
+                        </span>
+                        <span data-kid="2-3-5-1-1-2-2" data-name="tenure metadata text">
+                            TENURE: JAN 2025 – JUN 2026
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- Deep Dive 01: PipelineFlow CRM (Full-Width Split Comparison) -->
+            <article class="border-b border-[#202026]" data-kid="2-3-5-2" data-name="PipelineFlow CRM deep dive article">
+                <!-- Project Subheader Strip -->
+                <div class="px-6 lg:px-12 py-5 bg-[#0c0c0e] border-b border-[#202026] flex flex-wrap items-center justify-between gap-4" data-kid="2-3-5-2-1" data-name="project subheader strip">
+                    <div class="flex items-center gap-3" data-kid="2-3-5-2-1-1" data-name="project title group">
+                        <span class="px-2.5 py-1 bg-[#F5F5F5] text-[#000000] font-mono text-[11px] font-medium" data-kid="2-3-5-2-1-1-1" data-name="system code badge">
+                            SYS_01
+                        </span>
+                        <h3 class="font-heading text-2xl font-medium text-[#F5F5F5]" data-kid="2-3-5-2-1-1-2" data-name="project name heading">
+                            <a href="https://crm.rashmimetaliks.com/" target="_blank" rel="noopener noreferrer" class="hover:underline text-[#F5F5F5] hover:text-white transition-colors inline-flex items-center gap-2">
+                                PipelineFlow CRM
+                                <i class="ti ti-arrow-up-right text-base text-[#A0A0A0]"></i>
+                            </a>
+                        </h3>
+                        <span class="font-mono text-[11px] text-[#707078] hidden sm:inline" data-kid="2-3-5-2-1-1-3" data-name="project descriptor line">
+                            // AI-POWERED ENTERPRISE SALES &amp; FIELD CRM
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3 sm:gap-4" data-kid="2-3-5-2-1-2" data-name="project actions group">
+                        <span class="font-mono text-[11px] text-[#A0A0A0] hidden sm:inline" data-kid="2-3-5-2-1-2-1" data-name="project date range text">
+                            JAN 2025 – OCT 2025
+                        </span>
+                        <a href="https://crm.rashmimetaliks.com/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 bg-[#F5F5F5] text-[#000000] hover:bg-[#E0E0E0] font-mono text-[11px] font-medium transition-all duration-200 inline-flex items-center gap-1.5" data-name="visit crm live link">
+                            <span>VISIT CRM</span>
+                            <i class="ti ti-external-link"></i>
+                        </a>
+                        <button class="px-3.5 py-1.5 bg-[#141418] border border-[#282832] hover:border-[#F5F5F5] hover:bg-[#F5F5F5] hover:text-[#000000] font-mono text-[11px] text-[#F5F5F5] transition-all duration-200 cursor-pointer flex items-center gap-1.5" data-kid="2-3-5-2-1-2-2" data-name="inspect spec button" onclick="openProjectModal('pipelineflow-crm')" type="button">
+                            <span data-kid="2-3-5-2-1-2-2-1" data-name="inspect spec label text">
+                                INSPECT SPEC
+                            </span>
+                            <i class="ti ti-arrow-up-right" data-kid="2-3-5-2-1-2-2-2" data-name="inspect spec arrow icon">
+                            </i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Two Stark Columns Separated by 1px Iron Line -->
+                <div class="grid grid-cols-1 lg:grid-cols-12" data-kid="2-3-5-2-2" data-name="PipelineFlow split comparison layout">
+                    <!-- Left Column (6 cols): Context, Problem, Contributions & Outcomes -->
+                    <div class="lg:col-span-6 p-6 lg:p-12 border-b lg:border-b-0 lg:border-r border-[#202026] bg-[#08080a] flex flex-col justify-between" data-kid="2-3-5-2-2-1" data-name="PipelineFlow left column">
+                        <div class="space-y-8" data-kid="2-3-5-2-2-1-1" data-name="left column upper content">
+                            <div data-kid="2-3-5-2-2-1-1-1" data-name="overview problem block">
+                                <div class="font-mono text-[11px] text-[#707078] mb-2" data-kid="2-3-5-2-2-1-1-1-1" data-name="overview label text">
+                                    01 // OVERVIEW &amp; OPERATIONAL PROBLEM
+                                </div>
+                                <p class="text-[15px] leading-[1.7] text-[#A0A0A0]" data-kid="2-3-5-2-2-1-1-1-2" data-name="overview problem paragraph">
+                                    Enterprise field sales and account teams struggled with fragmented manual data entry, slow multi-screen CRUD workflows, and unverified field visit logs. Sales representatives spent excessive time navigating complex forms rather than closing deals.
+                                </p>
+                            </div>
+                            <div data-kid="2-3-5-2-2-1-1-2" data-name="engineering contributions block">
+                                <div class="font-mono text-[11px] text-[#707078] mb-3" data-kid="2-3-5-2-2-1-1-2-1" data-name="contributions label text">
+                                    02 // ENGINEERING CONTRIBUTIONS
+                                </div>
+                                <ul class="space-y-3.5 text-sm text-[#A0A0A0]" data-kid="2-3-5-2-2-1-1-2-2" data-name="contributions list">
+                                    <li class="flex items-start gap-3" data-kid="2-3-5-2-2-1-1-2-2-1" data-name="contribution item A">
+                                        <span class="font-mono text-[11px] text-[#F5F5F5] mt-0.5" data-kid="2-3-5-2-2-1-1-2-2-1-1" data-name="contribution index marker">
+                                            [A]
+                                        </span>
+                                        <span data-kid="2-3-5-2-2-1-1-2-2-1-2" data-name="contribution A text">
+                                            Engineered an end-to-end AI-powered full-stack CRM utilizing
+                                            <strong class="text-[#F5F5F5] font-medium" data-kid="2-3-5-2-2-1-1-2-2-1-2-1" data-name="highlighted tech stack text">
+                                                Gemini 3.5 Flash, React.js, Node.js, Express.js, PostgreSQL, and Prisma
+                                            </strong>
+                                            .
+                                        </span>
+                                    </li>
+                                    <li class="flex items-start gap-3" data-kid="2-3-5-2-2-1-1-2-2-2" data-name="contribution item B">
+                                        <span class="font-mono text-[11px] text-[#F5F5F5] mt-0.5" data-kid="2-3-5-2-2-1-1-2-2-2-1" data-name="contribution index marker">
+                                            [B]
+                                        </span>
+                                        <span data-kid="2-3-5-2-2-1-1-2-2-2-2" data-name="contribution B text">
+                                            Architected an autonomous
+                                            <strong class="text-[#F5F5F5] font-medium" data-kid="2-3-5-2-2-1-1-2-2-2-2-1" data-name="highlighted AI agent text">
+                                                AI Agent equipped with deterministic tool functions
+                                            </strong>
+                                            to execute database CRUD operations directly from user prompts.
+                                        </span>
+                                    </li>
+                                    <li class="flex items-start gap-3" data-kid="2-3-5-2-2-1-1-2-2-3" data-name="contribution item C">
+                                        <span class="font-mono text-[11px] text-[#F5F5F5] mt-0.5" data-kid="2-3-5-2-2-1-1-2-2-3-1" data-name="contribution index marker">
+                                            [C]
+                                        </span>
+                                        <span data-kid="2-3-5-2-2-1-1-2-2-3-2" data-name="contribution C text">
+                                            Built a
+                                            <strong class="text-[#F5F5F5] font-medium" data-kid="2-3-5-2-2-1-1-2-2-3-2-1" data-name="highlighted MCP chatbot text">
+                                                Model Context Protocol (MCP) conversational chatbot
+                                            </strong>
+                                            enabling contextual querying across accounts, leads, and deal pipelines.
+                                        </span>
+                                    </li>
+                                    <li class="flex items-start gap-3" data-kid="2-3-5-2-2-1-1-2-2-4" data-name="contribution item D">
+                                        <span class="font-mono text-[11px] text-[#F5F5F5] mt-0.5" data-kid="2-3-5-2-2-1-1-2-2-4-1" data-name="contribution index marker">
+                                            [D]
+                                        </span>
+                                        <span data-kid="2-3-5-2-2-1-1-2-2-4-2" data-name="contribution D text">
+                                            Implemented
+                                            <strong class="text-[#F5F5F5] font-medium" data-kid="2-3-5-2-2-1-1-2-2-4-2-1" data-name="highlighted intent understanding text">
+                                                natural-language intent understanding
+                                            </strong>
+                                            and real-time
+                                            <strong class="text-[#F5F5F5] font-medium" data-kid="2-3-5-2-2-1-1-2-2-4-2-2" data-name="highlighted GPS tracking text">
+                                                GPS-based field activity tracking
+                                            </strong>
+                                            for verifiable on-site sales check-ins.
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Outcomes & Stack Strip -->
+                        <div class="mt-10 pt-6 border-t border-[#202026]" data-kid="2-3-5-2-2-1-2" data-name="PipelineFlow production stack strip">
+                            <div class="font-mono text-[11px] text-[#707078] mb-3" data-kid="2-3-5-2-2-1-2-1" data-name="production stack label">
+                                03 // PRODUCTION STACK
+                            </div>
+                            <div class="flex flex-wrap gap-2" data-kid="2-3-5-2-2-1-2-2" data-name="production stack chips row">
+                                <span class="px-2.5 py-1 bg-[#141418] border border-[#202026] font-mono text-[11px] text-[#F5F5F5]" data-kid="2-3-5-2-2-1-2-2-1" data-name="Gemini tech chip">
+                                    Gemini 3.5 Flash
+                                </span>
+                                <span class="px-2.5 py-1 bg-[#141418] border border-[#202026] font-mono text-[11px] text-[#F5F5F5]" data-kid="2-3-5-2-2-1-2-2-2" data-name="React tech chip">
+                                    React.js
+                                </span>
+                                <span class="px-2.5 py-1 bg-[#141418] border border-[#202026] font-mono text-[11px] text-[#F5F5F5]" data-kid="2-3-5-2-2-1-2-2-3" data-name="Node tech chip">
+                                    Node.js
+                                </span>
+                                <span class="px-2.5 py-1 bg-[#141418] border border-[#202026] font-mono text-[11px] text-[#F5F5F5]" data-kid="2-3-5-2-2-1-2-2-4" data-name="Express tech chip">
+                                    Express.js
+                                </span>
+                                <span class="px-2.5 py-1 bg-[#141418] border border-[#202026] font-mono text-[11px] text-[#F5F5F5]" data-kid="2-3-5-2-2-1-2-2-5" data-name="PostgreSQL tech chip">
+                                    PostgreSQL
+                                </span>
+                                <span class="px-2.5 py-1 bg-[#141418] border border-[#202026] font-mono text-[11px] text-[#F5F5F5]" data-kid="2-3-5-2-2-1-2-2-6" data-name="Prisma tech chip">
+                                    Prisma ORM
+                                </span>
+                                <span class="px-2.5 py-1 bg-[#141418] border border-[#202026] font-mono text-[11px] text-[#F5F5F5]" data-kid="2-3-5-2-2-1-2-2-7" data-name="MCP tech chip">
+                                    MCP Server
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right Column (6 cols): AI Capabilities & System Architecture -->
+                    <div class="lg:col-span-6 p-6 lg:p-12 bg-[#0c0c0e] flex flex-col justify-between" data-kid="2-3-5-2-2-2" data-name="PipelineFlow right architecture column">
+                        <div data-kid="2-3-5-2-2-2-1" data-name="architecture diagram column">
+                            <div class="flex items-center justify-between font-mono text-[11px] text-[#707078] mb-4" data-kid="2-3-5-2-2-2-1-1" data-name="architecture diagram header row">
+                                <span data-kid="2-3-5-2-2-2-1-1-1" data-name="architecture diagram title">
+                                    CORE SYSTEM CAPABILITIES &amp; ARCHITECTURE
+                                </span>
+                                <span class="text-[#A0A0A0]" data-kid="2-3-5-2-2-2-1-1-2" data-name="model name label">
+                                    MODEL: GEMINI 3.5 FLASH
+                                </span>
+                            </div>
+                            <!-- Architecture / Capability Highlights -->
+                            <div class="space-y-3.5 font-mono text-xs" data-kid="2-3-5-2-2-2-1-2" data-name="architecture module list">
+                                <div class="p-4 bg-[#121216] border border-[#202026] hover:border-[#383842] transition-colors min-w-0" data-kid="2-3-5-2-2-2-1-2-1" data-name="architecture module conversational interface">
+                                    <div class="flex items-center justify-between text-[11px] text-[#707078] mb-1.5" data-kid="2-3-5-2-2-2-1-2-1-1" data-name="module header row">
+                                        <span data-kid="2-3-5-2-2-2-1-2-1-1-1" data-name="module label text">
+                                            CAPABILITY 01 // CONVERSATIONAL INTELLIGENCE
+                                        </span>
+                                        <span class="text-[#F5F5F5] font-medium" data-kid="2-3-5-2-2-2-1-2-1-1-2" data-name="module protocol tag">
+                                            MCP PROTOCOL
+                                        </span>
+                                    </div>
+                                    <div class="text-[#F5F5F5] font-semibold text-sm font-sans" data-kid="2-3-5-2-2-2-1-2-1-2" data-name="module title">
+                                        Grounding Live Database State Without Hallucination
+                                    </div>
+                                    <p class="mt-2 text-[13.5px] leading-[1.6] text-[#A0A0A0] font-sans" data-kid="2-3-5-2-2-2-1-2-1-3" data-name="module description text">
+                                        Binds live PostgreSQL and Prisma state into structured Model Context Protocol resources, enabling sales representatives to query multi-hop pipeline data and accounts with verified, hallucination-free answers.
+                                    </p>
+                                </div>
+                                <div class="p-4 bg-[#121216] border border-[#202026] hover:border-[#383842] transition-colors min-w-0" data-kid="2-3-5-2-2-2-1-2-2" data-name="architecture module AI agent tools">
+                                    <div class="flex items-center justify-between text-[11px] text-[#707078] mb-1.5" data-kid="2-3-5-2-2-2-1-2-2-1" data-name="module header row">
+                                        <span data-kid="2-3-5-2-2-2-1-2-2-1-1" data-name="module label text">
+                                            CAPABILITY 02 // AUTONOMOUS AGENT TOOLS
+                                        </span>
+                                        <span class="text-[#F5F5F5] font-medium" data-kid="2-3-5-2-2-2-1-2-2-1-2" data-name="module dispatch tag">
+                                            DETERMINISTIC CRUD
+                                        </span>
+                                    </div>
+                                    <div class="text-[#F5F5F5] font-semibold text-sm font-sans" data-kid="2-3-5-2-2-2-1-2-2-2" data-name="module title">
+                                        Prompt-to-Database Mutation Dispatch
+                                    </div>
+                                    <p class="mt-2 text-[13.5px] leading-[1.6] text-[#A0A0A0] font-sans" data-kid="2-3-5-2-2-2-1-2-2-3" data-name="module description text">
+                                        Translates conversational requests directly into schema-validated Prisma mutations with role-based access control, executing database operations (e.g. creating leads, updating deal stages) in real time.
+                                    </p>
+                                </div>
+                                <div class="p-4 bg-[#121216] border border-[#202026] hover:border-[#383842] transition-colors min-w-0" data-kid="2-3-5-2-2-2-1-2-3" data-name="architecture module intent geospatial">
+                                    <div class="flex items-center justify-between text-[11px] text-[#707078] mb-1.5" data-kid="2-3-5-2-2-2-1-2-3-1" data-name="module header row">
+                                        <span data-kid="2-3-5-2-2-2-1-2-3-1-1" data-name="module label text">
+                                            CAPABILITY 03 // GEOSPATIAL FIELD VERIFICATION
+                                        </span>
+                                        <span class="text-[#F5F5F5] font-medium" data-kid="2-3-5-2-2-2-1-2-3-1-2" data-name="module NL+GPS tag">
+                                            GPS + NLP
+                                        </span>
+                                    </div>
+                                    <div class="text-[#F5F5F5] font-semibold text-sm font-sans" data-kid="2-3-5-2-2-2-1-2-3-2" data-name="module title">
+                                        Verifiable On-Site Check-ins &amp; Summaries
+                                    </div>
+                                    <p class="mt-2 text-[13.5px] leading-[1.6] text-[#A0A0A0] font-sans" data-kid="2-3-5-2-2-2-1-2-3-3" data-name="module description text">
+                                        Couples real-time mobile GPS geofencing with natural-language visit debriefs to automatically verify, timestamp, and log physical client meetings with zero manual form fatigue.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Architectural Metric Highlights -->
+                            <div class="grid grid-cols-3 gap-2.5 mt-4 font-mono text-[11px]">
+                                <div class="p-3 bg-[#121216] border border-[#202026] text-center">
+                                    <div class="text-[#F5F5F5] font-semibold text-xs">Zero</div>
+                                    <div class="text-[#707078] mt-0.5">Hallucination</div>
+                                </div>
+                                <div class="p-3 bg-[#121216] border border-[#202026] text-center">
+                                    <div class="text-[#F5F5F5] font-semibold text-xs">Real-Time</div>
+                                    <div class="text-[#707078] mt-0.5">Prisma Sync</div>
+                                </div>
+                                <div class="p-3 bg-[#121216] border border-[#202026] text-center">
+                                    <div class="text-[#F5F5F5] font-semibold text-xs">Verified</div>
+                                    <div class="text-[#707078] mt-0.5">GPS Visits</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 pt-5 border-t border-[#202026] flex items-center justify-between font-mono text-[11px] text-[#707078]" data-kid="2-3-5-2-2-2-2" data-name="architecture footer status row">
+                            <span data-kid="2-3-5-2-2-2-2-1" data-name="deployment status text">
+                                STATUS: VERIFIED PRODUCTION DEPLOYMENT
+                            </span>
+                            <span class="text-[#A0A0A0]" data-kid="2-3-5-2-2-2-2-2" data-name="company name text">
+                                <a href="https://www.rashmimetaliks.com/" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-white transition-colors inline-flex items-center gap-1">
+                                    RASHMI METALIKS LTD.
+                                    <i class="ti ti-arrow-up-right text-[10px]"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <!-- Deep Dive 02: HireGem ATS (Full-Width Split Comparison) -->
+            <article data-kid="2-3-5-3" data-name="HireGem ATS deep dive article">
+                <!-- Project Subheader Strip -->
+                <div class="px-6 lg:px-12 py-5 bg-[#0c0c0e] border-b border-[#202026] flex flex-wrap items-center justify-between gap-4" data-kid="2-3-5-3-1" data-name="project subheader strip">
+                    <div class="flex items-center gap-3" data-kid="2-3-5-3-1-1" data-name="project title group">
+                        <span class="px-2.5 py-1 bg-[#F5F5F5] text-[#000000] font-mono text-[11px] font-medium" data-kid="2-3-5-3-1-1-1" data-name="system code badge">
+                            SYS_02
+                        </span>
+                        <h3 class="font-heading text-2xl font-medium text-[#F5F5F5]" data-kid="2-3-5-3-1-1-2" data-name="project name heading">
+                            <a href="https://ats.rashmimetaliks.com/" target="_blank" rel="noopener noreferrer" class="hover:underline text-[#F5F5F5] hover:text-white transition-colors inline-flex items-center gap-2">
+                                HireGem ATS
+                                <i class="ti ti-arrow-up-right text-base text-[#A0A0A0]"></i>
+                            </a>
+                        </h3>
+                        <span class="font-mono text-[11px] text-[#707078] hidden sm:inline" data-kid="2-3-5-3-1-1-3" data-name="project descriptor line">
+                            // INTELLIGENT APPLICANT TRACKING &amp; NLP RESUME ENGINE
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3 sm:gap-4" data-kid="2-3-5-3-1-2" data-name="project actions group">
+                        <span class="font-mono text-[11px] text-[#A0A0A0] hidden sm:inline" data-kid="2-3-5-3-1-2-1" data-name="project date range text">
+                            NOV 2025 – JUN 2026
+                        </span>
+                        <a href="https://ats.rashmimetaliks.com/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 bg-[#F5F5F5] text-[#000000] hover:bg-[#E0E0E0] font-mono text-[11px] font-medium transition-all duration-200 inline-flex items-center gap-1.5" data-name="visit ats live link">
+                            <span>VISIT ATS</span>
+                            <i class="ti ti-external-link"></i>
+                        </a>
+                        <button class="px-3.5 py-1.5 bg-[#141418] border border-[#282832] hover:border-[#F5F5F5] hover:bg-[#F5F5F5] hover:text-[#000000] font-mono text-[11px] text-[#F5F5F5] transition-all duration-200 cursor-pointer flex items-center gap-1.5" data-kid="2-3-5-3-1-2-2" data-name="inspect spec button" onclick="openProjectModal('hiregem-ats')" type="button">
+                            <span data-kid="2-3-5-3-1-2-2-1" data-name="inspect spec label text">
+                                INSPECT SPEC
+                            </span>
+                            <i class="ti ti-arrow-up-right" data-kid="2-3-5-3-1-2-2-2" data-name="inspect spec arrow icon">
+                            </i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Two Stark Columns Separated by 1px Iron Line -->
+                <div class="grid grid-cols-1 lg:grid-cols-12" data-kid="2-3-5-3-2" data-name="HireGem split comparison layout">
+                    <!-- Left Column (6 cols): Context, Problem, Contributions & Outcomes -->
+                    <div class="lg:col-span-6 p-6 lg:p-12 border-b lg:border-b-0 lg:border-r border-[#202026] bg-[#08080a] flex flex-col justify-between" data-kid="2-3-5-3-2-1" data-name="HireGem left column">
+                        <div class="space-y-8" data-kid="2-3-5-3-2-1-1" data-name="left column upper content">
+                            <div data-kid="2-3-5-3-2-1-1-1" data-name="overview problem block">
+                                <div class="font-mono text-[11px] text-[#707078] mb-2" data-kid="2-3-5-3-2-1-1-1-1" data-name="overview label text">
+                                    01 // OVERVIEW &amp; OPERATIONAL PROBLEM
+                                </div>
+                                <p class="text-[15px] leading-[1.7] text-[#A0A0A0]" data-kid="2-3-5-3-2-1-1-1-2" data-name="overview problem paragraph">
+                                    High-volume enterprise recruitment faced severe bottlenecks screening incoming candidate emails, unstructured PDF/DOCX resumes, and scheduling multi-stage interviews across distributed hiring managers.
+                                </p>
+                            </div>
+                            <div data-kid="2-3-5-3-2-1-1-2" data-name="engineering contributions block">
+                                <div class="font-mono text-[11px] text-[#707078] mb-3" data-kid="2-3-5-3-2-1-1-2-1" data-name="contributions label text">
+                                    02 // ENGINEERING CONTRIBUTIONS
+                                </div>
+                                <ul class="space-y-3.5 text-sm text-[#A0A0A0]" data-kid="2-3-5-3-2-1-1-2-2" data-name="contributions list">
+                                    <li class="flex items-start gap-3" data-kid="2-3-5-3-2-1-1-2-2-1" data-name="contribution item A">
+                                        <span class="font-mono text-[11px] text-[#F5F5F5] mt-0.5" data-kid="2-3-5-3-2-1-1-2-2-1-1" data-name="contribution index marker">
+                                            [A]
+                                        </span>
+                                        <span data-kid="2-3-5-3-2-1-1-2-2-1-2" data-name="contribution A text">
+                                            Architected a full-stack Applicant Tracking System with
+                                            <strong class="text-[#F5F5F5] font-medium" data-kid="2-3-5-3-2-1-1-2-2-1-2-1" data-name="highlighted tech stack text">
+                                                React.js, Node.js, Express.js, PostgreSQL, Prisma, and Python
+                                            </strong>
+                                            .
+                                        </span>
+                                    </li>
+                                    <li class="flex items-start gap-3" data-kid="2-3-5-3-2-1-1-2-2-2" data-name="contribution item B">
+                                        <span class="font-mono text-[11px] text-[#F5F5F5] mt-0.5" data-kid="2-3-5-3-2-1-1-2-2-2-1" data-name="contribution index marker">
+                                            [B]
+                                        </span>
+                                        <span data-kid="2-3-5-3-2-1-1-2-2-2-2" data-name="contribution B text">
+                                            Engineered an
+                                            <strong class="text-[#F5F5F5] font-medium" data-kid="2-3-5-3-2-1-1-2-2-2-2-1" data-name="highlighted NLP parser text">
+                                                NLP resume parsing engine backed by 500+ domain heuristics
+                                            </strong>
+                                            to extract candidate skills, tenure, education, and role fit automatically.
+                                        </span>
+                                    </li>
+                                    <li class="flex items-start gap-3" data-kid="2-3-5-3-2-1-1-2-2-3" data-name="contribution item C">
+                                        <span class="font-mono text-[11px] text-[#F5F5F5] mt-0.5" data-kid="2-3-5-3-2-1-1-2-2-3-1" data-name="contribution index marker">
+                                            [C]
+                                        </span>
+                                        <span data-kid="2-3-5-3-2-1-1-2-2-3-2" data-name="contribution C text">
+                                            Built an automated
+                                            <strong class="text-[#F5F5F5] font-medium" data-kid="2-3-5-3-2-1-1-2-2-3-2-1" data-name="highlighted IMAP pipeline text">
+                                                IMAP email ingestion pipeline handling 1,000+ applications
+                                            </strong>
+                                            with attachment extraction and deduplication.
+                                        </span>
+                                    </li>
+                                    <li class="flex items-start gap-3" data-kid="2-3-5-3-2-1-1-2-2-4" data-name="contribution item D">
+                                        <span class="font-mono text-[11px] text-[#F5F5F5] mt-0.5" data-kid="2-3-5-3-2-1-1-2-2-4-1" data-name="contribution index marker">
+                                            [D]
+                                        </span>
+                                        <span data-kid="2-3-5-3-2-1-1-2-2-4-2" data-name="contribution D text">
+                                            Integrated
+                                            <strong class="text-[#F5F5F5] font-medium" data-kid="2-3-5-3-2-1-1-2-2-4-2-1" data-name="highlighted Graph API text">
+                                                Microsoft Graph API
+                                            </strong>
+                                            for automated recruiter workflows, calendar synchronization, and candidate communication.
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Outcomes & Stack Strip -->
+                        <div class="mt-10 pt-6 border-t border-[#202026]" data-kid="2-3-5-3-2-1-2" data-name="HireGem production stack strip">
+                            <div class="font-mono text-[11px] text-[#707078] mb-3" data-kid="2-3-5-3-2-1-2-1" data-name="production stack label">
+                                03 // PRODUCTION STACK
+                            </div>
+                            <div class="flex flex-wrap gap-2" data-kid="2-3-5-3-2-1-2-2" data-name="production stack chips row">
+                                <span class="px-2.5 py-1 bg-[#141418] border border-[#202026] font-mono text-[11px] text-[#F5F5F5]" data-kid="2-3-5-3-2-1-2-2-1" data-name="Python NLP tech chip">
+                                    Python NLP
+                                </span>
+                                <span class="px-2.5 py-1 bg-[#141418] border border-[#202026] font-mono text-[11px] text-[#F5F5F5]" data-kid="2-3-5-3-2-1-2-2-2" data-name="React tech chip">
+                                    React.js
+                                </span>
+                                <span class="px-2.5 py-1 bg-[#141418] border border-[#202026] font-mono text-[11px] text-[#F5F5F5]" data-kid="2-3-5-3-2-1-2-2-3" data-name="Node tech chip">
+                                    Node.js
+                                </span>
+                                <span class="px-2.5 py-1 bg-[#141418] border border-[#202026] font-mono text-[11px] text-[#F5F5F5]" data-kid="2-3-5-3-2-1-2-2-4" data-name="Express tech chip">
+                                    Express.js
+                                </span>
+                                <span class="px-2.5 py-1 bg-[#141418] border border-[#202026] font-mono text-[11px] text-[#F5F5F5]" data-kid="2-3-5-3-2-1-2-2-5" data-name="PostgreSQL tech chip">
+                                    PostgreSQL
+                                </span>
+                                <span class="px-2.5 py-1 bg-[#141418] border border-[#202026] font-mono text-[11px] text-[#F5F5F5]" data-kid="2-3-5-3-2-1-2-2-6" data-name="Prisma tech chip">
+                                    Prisma
+                                </span>
+                                <span class="px-2.5 py-1 bg-[#141418] border border-[#202026] font-mono text-[11px] text-[#F5F5F5]" data-kid="2-3-5-3-2-1-2-2-7" data-name="IMAP pipeline tech chip">
+                                    IMAP Pipeline
+                                </span>
+                                <span class="px-2.5 py-1 bg-[#141418] border border-[#202026] font-mono text-[11px] text-[#F5F5F5]" data-kid="2-3-5-3-2-1-2-2-8" data-name="MS Graph API tech chip">
+                                    MS Graph API
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right Column (6 cols): AI Capabilities & NLP Ingestion Architecture -->
+                    <div class="lg:col-span-6 p-6 lg:p-12 bg-[#0c0c0e] flex flex-col justify-between" data-kid="2-3-5-3-2-2" data-name="HireGem right architecture column">
+                        <div data-kid="2-3-5-3-2-2-1" data-name="NLP telemetry column">
+                            <div class="flex items-center justify-between font-mono text-[11px] text-[#707078] mb-4" data-kid="2-3-5-3-2-2-1-1" data-name="telemetry header row">
+                                <span data-kid="2-3-5-3-2-2-1-1-1" data-name="telemetry title text">
+                                    CORE SYSTEM PIPELINE &amp; ARCHITECTURE
+                                </span>
+                                <span class="text-[#A0A0A0]" data-kid="2-3-5-3-2-2-1-1-2" data-name="scale label text">
+                                    SCALE: 1,000+ CANDIDATES
+                                </span>
+                            </div>
+                            <!-- Architecture / Pipeline Highlights -->
+                            <div class="space-y-3.5 font-mono text-xs" data-kid="2-3-5-3-2-2-1-2" data-name="pipeline module list">
+                                <div class="p-4 bg-[#121216] border border-[#202026] hover:border-[#383842] transition-colors min-w-0" data-kid="2-3-5-3-2-2-1-2-1" data-name="pipeline module IMAP ingestion">
+                                    <div class="flex items-center justify-between text-[11px] text-[#707078] mb-1.5" data-kid="2-3-5-3-2-2-1-2-1-1" data-name="module header row">
+                                        <span data-kid="2-3-5-3-2-2-1-2-1-1-1" data-name="module label text">
+                                            PIPELINE 01 // EMAIL &amp; ATTACHMENT INGESTION
+                                        </span>
+                                        <span class="text-[#F5F5F5] font-medium" data-kid="2-3-5-3-2-2-1-2-1-1-2" data-name="module app count tag">
+                                            AUTOMATED STREAM
+                                        </span>
+                                    </div>
+                                    <div class="text-[#F5F5F5] font-semibold text-sm font-sans" data-kid="2-3-5-3-2-2-1-2-1-2" data-name="module title">
+                                        Continuous IMAP Stream &amp; Resume Deduplication
+                                    </div>
+                                    <p class="mt-2 text-[13.5px] leading-[1.6] text-[#A0A0A0] font-sans" data-kid="2-3-5-3-2-2-1-2-1-3" data-name="module description text">
+                                        Continuously polls recruitment inboxes via IMAP, automatically extracting, deduplicating, and normalizing candidate emails and PDF/DOCX resumes into structured PostgreSQL candidate records.
+                                    </p>
+                                </div>
+                                <div class="p-4 bg-[#121216] border border-[#202026] hover:border-[#383842] transition-colors min-w-0" data-kid="2-3-5-3-2-2-1-2-2" data-name="pipeline module NLP engine">
+                                    <div class="flex items-center justify-between text-[11px] text-[#707078] mb-1.5" data-kid="2-3-5-3-2-2-1-2-2-1" data-name="module header row">
+                                        <span data-kid="2-3-5-3-2-2-1-2-2-1-1" data-name="module label text">
+                                            PIPELINE 02 // CANDIDATE EVALUATION ENGINE
+                                        </span>
+                                        <span class="text-[#F5F5F5] font-medium" data-kid="2-3-5-3-2-2-1-2-2-1-2" data-name="module rule count tag">
+                                            500+ HEURISTICS
+                                        </span>
+                                    </div>
+                                    <div class="text-[#F5F5F5] font-semibold text-sm font-sans" data-kid="2-3-5-3-2-2-1-2-2-2" data-name="module title">
+                                        Domain Heuristic NLP Resume Scoring
+                                    </div>
+                                    <p class="mt-2 text-[13.5px] leading-[1.6] text-[#A0A0A0] font-sans" data-kid="2-3-5-3-2-2-1-2-2-3" data-name="module description text">
+                                        Combines Python NLP entity extraction with 500+ domain-specific heuristic rules to automatically score candidate technical competencies, career tenure continuity, and role alignment.
+                                    </p>
+                                </div>
+                                <div class="p-4 bg-[#121216] border border-[#202026] hover:border-[#383842] transition-colors min-w-0" data-kid="2-3-5-3-2-2-1-2-3" data-name="pipeline module graph integration">
+                                    <div class="flex items-center justify-between text-[11px] text-[#707078] mb-1.5" data-kid="2-3-5-3-2-2-1-2-3-1" data-name="module header row">
+                                        <span data-kid="2-3-5-3-2-2-1-2-3-1-1" data-name="module label text">
+                                            PIPELINE 03 // WORKFLOW ORCHESTRATION
+                                        </span>
+                                        <span class="text-[#F5F5F5] font-medium" data-kid="2-3-5-3-2-2-1-2-3-1-2" data-name="module graph API tag">
+                                            MS GRAPH API
+                                        </span>
+                                    </div>
+                                    <div class="text-[#F5F5F5] font-semibold text-sm font-sans" data-kid="2-3-5-3-2-2-1-2-3-2" data-name="module title">
+                                        Recruiter Calendar Sync &amp; Stage Transitions
+                                    </div>
+                                    <p class="mt-2 text-[13.5px] leading-[1.6] text-[#A0A0A0] font-sans" data-kid="2-3-5-3-2-2-1-2-3-3" data-name="module description text">
+                                        Automates candidate interview scheduling, interviewer Outlook calendar availability checks, and multi-stage status notifications seamlessly via Microsoft Graph API.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Architectural Metric Highlights -->
+                            <div class="grid grid-cols-3 gap-2.5 mt-4 font-mono text-[11px]">
+                                <div class="p-3 bg-[#121216] border border-[#202026] text-center">
+                                    <div class="text-[#F5F5F5] font-semibold text-xs">1,000+</div>
+                                    <div class="text-[#707078] mt-0.5">Parsed Resumes</div>
+                                </div>
+                                <div class="p-3 bg-[#121216] border border-[#202026] text-center">
+                                    <div class="text-[#F5F5F5] font-semibold text-xs">500+</div>
+                                    <div class="text-[#707078] mt-0.5">NLP Rules</div>
+                                </div>
+                                <div class="p-3 bg-[#121216] border border-[#202026] text-center">
+                                    <div class="text-[#F5F5F5] font-semibold text-xs">Automated</div>
+                                    <div class="text-[#707078] mt-0.5">Calendar Sync</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 pt-5 border-t border-[#202026] flex items-center justify-between font-mono text-[11px] text-[#707078]" data-kid="2-3-5-3-2-2-2" data-name="telemetry footer status row">
+                            <span data-kid="2-3-5-3-2-2-2-1" data-name="deployment status text">
+                                STATUS: VERIFIED PRODUCTION DEPLOYMENT
+                            </span>
+                            <span class="text-[#A0A0A0]" data-kid="2-3-5-3-2-2-2-2" data-name="company name text">
+                                <a href="https://www.rashmimetaliks.com/" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-white transition-colors inline-flex items-center gap-1">
+                                    RASHMI METALIKS LTD.
+                                    <i class="ti ti-arrow-up-right text-[10px]"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <!-- ==========================================
+         SECTION 6: CONTACT SECTION (#banner-avatar + Tabular Channels & Validated Form)
+         ========================================== -->
+        <section class="border-b border-[#202026]" data-kid="2-3-6" data-name="contact section" id="contact">
+            <!-- Massive Horizon Wash Band Top Banner -->
+            <div class="horizon-wash border-b border-[#202026] px-6 lg:px-12 pt-12 pb-16 relative bg-[#0c0c0e]" data-kid="2-3-6-1" data-name="contact banner hero header">
+                <div class="grid grid-cols-1 lg:grid-cols-12 items-end gap-6" data-kid="2-3-6-1-1" data-name="banner content grid">
+                    <div class="lg:col-span-8" data-kid="2-3-6-1-1-1" data-name="banner title column">
+                        <div class="flex items-center gap-3 mb-4" data-kid="2-3-6-1-1-1-1" data-name="banner label row">
+                            <span class="bracket-numeral font-mono text-[11px] text-[#707078]" data-kid="2-3-6-1-1-1-1-1" data-name="bracketed section numeral 06">
+                                06
+                            </span>
+                            <span class="font-mono text-[11px] text-[#A0A0A0]" data-kid="2-3-6-1-1-1-1-2" data-name="banner dispatch label">
+                                DIRECT DISPATCH // MEERUT, INDIA
+                            </span>
+                        </div>
+                        <h2 class="font-heading text-3xl sm:text-4xl lg:text-[42px] font-medium tracking-tight leading-[1.1] text-[#F5F5F5]" data-kid="2-3-6-1-1-1-2" data-name="contact headline text">
+                            Let's build production AI &amp; full-stack systems together.
+                        </h2>
+                    </div>
+                    <div class="lg:col-span-4 lg:text-right font-mono text-[11px] text-[#A0A0A0]" data-kid="2-3-6-1-1-2" data-name="banner availability column">
+                        <div data-kid="2-3-6-1-1-2-1" data-name="response SLA text">
+                            RESPONSE SLA: WITHIN 24 HOURS
+                        </div>
+                        <div class="text-[#707078] mt-1" data-kid="2-3-6-1-1-2-2" data-name="availability status text">
+                            AVAILABILITY: OPEN FOR FULL-TIME &amp; CONSULTING
+                        </div>
+                    </div>
+                </div>
+                <!-- Circular Avatar Overlapping Banner Bottom Edge -->
+                <div class="absolute -bottom-8 left-6 lg:left-12 flex items-center gap-4" data-kid="2-3-6-1-2" data-name="banner overlapping avatar group">
+                    <div class="w-16 h-16 rounded-full border-2 border-[#F5F5F5] bg-[#0c0c0e] overflow-hidden shadow-[0_0_15px_rgba(255,255,255,0.1)]" data-kid="2-3-6-1-2-1" data-name="avatar image container">
+                        <img alt="Ayush Kumar avatar" class="w-full h-full object-cover object-top grayscale contrast-125 brightness-105" data-kid="2-3-6-1-2-1-1" data-name="avatar headshot image" decoding="async" loading="lazy" src="headshot.png"/>
+                    </div>
+                    <div class="bg-[#000000] border border-[#202026] px-3.5 py-1 font-mono text-[11px] text-[#F5F5F5] tracking-wide" data-kid="2-3-6-1-2-2" data-name="avatar name tag">
+                        AYUSH KUMAR · AI &amp; FULL-STACK
+                    </div>
+                </div>
+            </div>
+            <!-- Rectangular Modular Contact Grid -->
+            <div class="p-6 lg:p-12 bg-[#08080a]" data-kid="2-3-6-2" data-name="contact rectangular grid container">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    
+                    <!-- Card 1: Primary Email -->
+                    <div class="p-6 bg-[#0c0c0e] border border-[#202026] hover:border-[#383842] hover:bg-[#121216] transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between text-[#707078] mb-4">
+                                <span class="font-mono text-[11px] tracking-wide">01 // ELECTRONIC MAIL</span>
+                                <i class="ti ti-mail text-xl text-[#A0A0A0] group-hover:text-white transition-colors"></i>
+                            </div>
+                            <h3 class="font-heading text-lg font-medium text-[#F5F5F5] group-hover:text-white transition-colors">
+                                Direct Email
+                            </h3>
+                            <p class="text-sm text-[#A0A0A0] mt-1.5 leading-relaxed font-mono text-xs">
+                                ayush2003kumar19@gmail.com
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-[#202026] flex items-center justify-between gap-3">
+                            <a href="mailto:ayush2003kumar19@gmail.com" class="font-mono text-[11px] text-[#F5F5F5] hover:underline flex items-center gap-1.5">
+                                <span>Send Mail</span>
+                                <i class="ti ti-arrow-up-right text-xs"></i>
+                            </a>
+                            <button id="copy-email-btn" type="button" class="px-3 py-1.5 bg-[#F5F5F5] text-[#000000] font-mono text-[11px] font-medium hover:bg-[#E0E0E0] cursor-pointer flex items-center gap-1 transition-colors">
+                                <i id="copy-email-icon" class="ti ti-copy text-xs"></i>
+                                <span id="copy-email-label">COPY</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: WhatsApp / Phone -->
+                    <a href="https://wa.me/916397752343" target="_blank" rel="noopener noreferrer" class="p-6 bg-[#0c0c0e] border border-[#202026] hover:border-[#383842] hover:bg-[#121216] transition-all duration-300 flex flex-col justify-between group block">
+                        <div>
+                            <div class="flex items-center justify-between text-[#707078] mb-4">
+                                <span class="font-mono text-[11px] tracking-wide">02 // INSTANT MESSAGING</span>
+                                <i class="ti ti-brand-whatsapp text-xl text-[#A0A0A0] group-hover:text-emerald-400 transition-colors"></i>
+                            </div>
+                            <h3 class="font-heading text-lg font-medium text-[#F5F5F5] group-hover:text-white transition-colors">
+                                WhatsApp / Direct Call
+                            </h3>
+                            <p class="text-sm text-[#A0A0A0] mt-1.5 leading-relaxed font-mono text-xs">
+                                +91 6397752343
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-[#202026] flex items-center justify-between font-mono text-[11px] text-[#F5F5F5]">
+                            <span>Open WhatsApp Chat</span>
+                            <i class="ti ti-arrow-up-right text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                        </div>
+                    </a>
+
+                    <!-- Card 3: LinkedIn Profile -->
+                    <a href="https://linkedin.com/in/ayush-kumar" target="_blank" rel="noopener noreferrer" class="p-6 bg-[#0c0c0e] border border-[#202026] hover:border-[#383842] hover:bg-[#121216] transition-all duration-300 flex flex-col justify-between group block">
+                        <div>
+                            <div class="flex items-center justify-between text-[#707078] mb-4">
+                                <span class="font-mono text-[11px] tracking-wide">03 // PROFESSIONAL NETWORK</span>
+                                <i class="ti ti-brand-linkedin text-xl text-[#A0A0A0] group-hover:text-blue-400 transition-colors"></i>
+                            </div>
+                            <h3 class="font-heading text-lg font-medium text-[#F5F5F5] group-hover:text-white transition-colors">
+                                LinkedIn
+                            </h3>
+                            <p class="text-sm text-[#A0A0A0] mt-1.5 leading-relaxed font-mono text-xs">
+                                in/ayush-kumar
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-[#202026] flex items-center justify-between font-mono text-[11px] text-[#F5F5F5]">
+                            <span>Connect on LinkedIn</span>
+                            <i class="ti ti-arrow-up-right text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                        </div>
+                    </a>
+
+                    <!-- Card 4: GitHub Repository -->
+                    <a href="https://github.com/ayushprajapati3002" target="_blank" rel="noopener noreferrer" class="p-6 bg-[#0c0c0e] border border-[#202026] hover:border-[#383842] hover:bg-[#121216] transition-all duration-300 flex flex-col justify-between group block">
+                        <div>
+                            <div class="flex items-center justify-between text-[#707078] mb-4">
+                                <span class="font-mono text-[11px] tracking-wide">04 // CODE & REPOSITORIES</span>
+                                <i class="ti ti-brand-github text-xl text-[#A0A0A0] group-hover:text-white transition-colors"></i>
+                            </div>
+                            <h3 class="font-heading text-lg font-medium text-[#F5F5F5] group-hover:text-white transition-colors">
+                                GitHub
+                            </h3>
+                            <p class="text-sm text-[#A0A0A0] mt-1.5 leading-relaxed font-mono text-xs">
+                                github.com/ayushprajapati3002
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-[#202026] flex items-center justify-between font-mono text-[11px] text-[#F5F5F5]">
+                            <span>Explore Repositories</span>
+                            <i class="ti ti-arrow-up-right text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                        </div>
+                    </a>
+
+                    <!-- Card 5: Geographic Base & Coordinates -->
+                    <div class="p-6 bg-[#0c0c0e] border border-[#202026] hover:border-[#383842] transition-colors flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-[#707078] mb-4">
+                                <span class="font-mono text-[11px] tracking-wide">05 // GEOGRAPHIC BASE</span>
+                                <i class="ti ti-map-pin text-xl text-[#A0A0A0]"></i>
+                            </div>
+                            <h3 class="font-heading text-lg font-medium text-[#F5F5F5]">
+                                Meerut, India
+                            </h3>
+                            <p class="text-sm text-[#A0A0A0] mt-1.5 leading-relaxed font-mono text-xs">
+                                Uttar Pradesh · IST (UTC+05:30)
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-[#202026] flex items-center justify-between font-mono text-[11px] text-[#707078]">
+                            <span>RELOCATION / REMOTE</span>
+                            <span class="text-emerald-400">READY</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Response & Availability Commitment -->
+                    <div class="p-6 bg-[#0c0c0e] border border-[#202026] hover:border-[#383842] transition-colors flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-[#707078] mb-4">
+                                <span class="font-mono text-[11px] tracking-wide">06 // AVAILABILITY STATUS</span>
+                                <i class="ti ti-clock-check text-xl text-[#A0A0A0]"></i>
+                            </div>
+                            <h3 class="font-heading text-lg font-medium text-[#F5F5F5]">
+                                Rapid Response SLA
+                            </h3>
+                            <p class="text-sm text-[#A0A0A0] mt-1.5 leading-relaxed font-mono text-xs">
+                                Guaranteed reply within 24 hours
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-[#202026] flex items-center justify-between font-mono text-[11px] text-[#707078]">
+                            <span>STATUS</span>
+                            <span class="text-[#F5F5F5] font-medium flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                                OPEN FOR ROLES
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- ==========================================
+       SECTION 7: SWISS ARCHIVAL FOOTER (Anchored to Columns 1, 6, and 12)
+       ========================================== -->
+    <footer class="max-w-[1440px] mx-auto px-6 lg:px-12 py-8 bg-[#000000] border-t border-[#202026]" data-kid="2-4" data-name="Swiss archival footer">
+        <div class="grid grid-cols-1 md:grid-cols-12 items-center gap-4 font-mono text-[11px]" data-kid="2-4-1" data-name="footer 12-column grid">
+            <!-- Column 1-5: Copyright & Credential -->
+            <div class="md:col-span-5 text-[#A0A0A0]" data-kid="2-4-1-1" data-name="footer copyright and credential text">
+                © 2026 AYUSH KUMAR. ALL RIGHTS RESERVED. // NIT SRINAGAR CSE
+            </div>
+            <!-- Column 6-9: Availability Status -->
+            <div class="md:col-span-4 flex items-center gap-2.5 text-[#F5F5F5]" data-kid="2-4-1-2" data-name="footer availability status group">
+                <span class="w-2 h-2 rounded-full bg-[#F5F5F5] ring-3 ring-[#707078]/40 inline-block shadow-[0_0_8px_rgba(245,245,245,0.6)]" data-kid="2-4-1-2-1" data-name="availability status dot">
+                </span>
+                <span data-kid="2-4-1-2-2" data-name="availability status text">
+                    Open to relevant opportunities
+                </span>
+            </div>
+            <!-- Column 10-12: Back to Top Link -->
+            <div class="md:col-span-3 md:text-right" data-kid="2-4-1-3" data-name="footer back-to-top group">
+                <a class="inline-flex items-center gap-1.5 text-[#A0A0A0] hover:text-[#F5F5F5] transition-colors" data-kid="2-4-1-3-1" data-name="back to top link" href="#home" id="back-to-top-link">
+                    <span data-kid="2-4-1-3-1-1" data-name="back to top label text">
+                        BACK TO TOP
+                    </span>
+                    <i class="ti ti-arrow-up" data-kid="2-4-1-3-1-2" data-name="up arrow icon">
+                    </i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <!-- ==========================================
+       PROJECT DETAILS ACCESSIBLE MODAL DIALOG
+       ========================================== -->
+    <div aria-labelledby="modal-project-title" aria-modal="true" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-4 sm:p-6" data-kid="2-5" data-name="project details modal backdrop" id="project-modal-backdrop" role="dialog">
+        <div class="w-full max-w-3xl bg-[#0c0c0e] border border-[#202026] text-[#F5F5F5] max-h-[90vh] overflow-y-auto shadow-2xl" data-kid="2-5-1" data-name="project modal dialog panel">
+            <!-- Modal Top Header -->
+            <div class="px-6 py-4 bg-[#101014] border-b border-[#202026] flex items-center justify-between" data-kid="2-5-1-1" data-name="modal top header bar">
+                <div class="flex items-center gap-3" data-kid="2-5-1-1-1" data-name="modal badge and category group">
+                    <span class="px-2.5 py-0.5 bg-[#F5F5F5] text-[#000000] font-mono text-[11px] font-medium tracking-wide" data-dynamic="true" data-kid="2-5-1-1-1-1" data-name="modal status badge" data-reason="textContent replaced with project badge by openProjectModal on each open" id="modal-project-badge">
+                        VERIFIED
+                    </span>
+                    <span class="font-mono text-[11px] text-[#A0A0A0]" data-dynamic="true" data-kid="2-5-1-1-1-2" data-name="modal category label" data-reason="textContent replaced with project category by openProjectModal on each open" id="modal-project-category">
+                        AI / FULL-STACK
+                    </span>
+                </div>
+                <button aria-label="Close modal" class="w-8 h-8 border border-[#202026] bg-[#141418] text-[#A0A0A0] hover:text-[#F5F5F5] hover:border-[#F5F5F5] flex items-center justify-center cursor-pointer transition-colors" data-kid="2-5-1-1-2" data-name="modal close button" id="close-modal-btn" type="button">
+                    <i class="ti ti-x text-sm" data-kid="2-5-1-1-2-1" data-name="close X icon">
+                    </i>
+                </button>
+            </div>
+            <!-- Modal Content Body -->
+            <div class="p-6 sm:p-8 space-y-6" data-kid="2-5-1-2" data-name="modal content body">
+                <div data-kid="2-5-1-2-1" data-name="modal title block">
+                    <div class="font-mono text-[11px] text-[#707078]" data-dynamic="true" data-kid="2-5-1-2-1-1" data-name="modal project period text" data-reason="textContent replaced with project period by openProjectModal on each open" id="modal-project-period">
+                        JAN 2025 – OCT 2025 · RASHMI METALIKS LIMITED
+                    </div>
+                    <h3 class="mt-1 font-heading text-2xl sm:text-3xl font-medium text-[#F5F5F5]" data-dynamic="true" data-kid="2-5-1-2-1-2" data-name="modal project title heading" data-reason="textContent replaced with project title by openProjectModal on each open" id="modal-project-title">
+                        PipelineFlow CRM
+                    </h3>
+                    <p class="mt-3 text-[15px] leading-[1.7] text-[#A0A0A0]" data-dynamic="true" data-kid="2-5-1-2-1-3" data-name="modal project description text" data-reason="textContent replaced with project description by openProjectModal on each open" id="modal-project-desc">
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-[#202026]" data-kid="2-5-1-2-2" data-name="modal problem-solution grid">
+                    <div class="p-4 bg-[#121216] border border-[#202026]" data-kid="2-5-1-2-2-1" data-name="modal problem card">
+                        <div class="font-mono text-[11px] text-[#707078] mb-1.5" data-kid="2-5-1-2-2-1-1" data-name="problem card label">
+                            OPERATIONAL PROBLEM
+                        </div>
+                        <p class="text-sm text-[#A0A0A0] leading-relaxed" data-dynamic="true" data-kid="2-5-1-2-2-1-2" data-name="modal problem text" data-reason="textContent replaced with project problem by openProjectModal on each open" id="modal-project-problem">
+                        </p>
+                    </div>
+                    <div class="p-4 bg-[#121216] border border-[#202026]" data-kid="2-5-1-2-2-2" data-name="modal solution card">
+                        <div class="font-mono text-[11px] text-[#707078] mb-1.5" data-kid="2-5-1-2-2-2-1" data-name="solution card label">
+                            ARCHITECTURAL SOLUTION
+                        </div>
+                        <p class="text-sm text-[#A0A0A0] leading-relaxed" data-dynamic="true" data-kid="2-5-1-2-2-2-2" data-name="modal solution text" data-reason="textContent replaced with project solution by openProjectModal on each open" id="modal-project-solution">
+                        </p>
+                    </div>
+                </div>
+                <div class="pt-4 border-t border-[#202026]" data-kid="2-5-1-2-3" data-name="modal contributions block">
+                    <div class="font-mono text-[11px] text-[#707078] mb-3" data-kid="2-5-1-2-3-1" data-name="contributions label text">
+                        KEY CONTRIBUTIONS &amp; AI CAPABILITIES
+                    </div>
+                    <ul class="space-y-2 text-sm text-[#A0A0A0]" data-dynamic="true" data-kid="2-5-1-2-3-2" data-name="contributions bullet list" data-reason="innerHTML replaced with project bullets by openProjectModal on each open" id="modal-project-bullets">
+                    </ul>
+                </div>
+                <div class="pt-4 border-t border-[#202026]" data-kid="2-5-1-2-4" data-name="modal technology spec block">
+                    <div class="font-mono text-[11px] text-[#707078] mb-3" data-kid="2-5-1-2-4-1" data-name="technology label text">
+                        TECHNOLOGY SPECIFICATION
+                    </div>
+                    <div class="flex flex-wrap gap-2" data-dynamic="true" data-kid="2-5-1-2-4-2" data-name="technology chips row" data-reason="innerHTML replaced with project tech stack by openProjectModal on each open" id="modal-project-stack">
+                    </div>
+                </div>
+            </div>
+            <!-- Modal Footer -->
+            <div class="px-6 py-4 bg-[#101014] border-t border-[#202026] flex items-center justify-between" data-kid="2-5-1-3" data-name="modal footer bar">
+                <span class="font-mono text-[11px] text-[#707078]" data-kid="2-5-1-3-1" data-name="escape key hint text">
+                    Press [ESC] to close
+                </span>
+                <button class="px-4 py-2 bg-[#F5F5F5] text-[#000000] font-mono text-[11px] font-medium hover:bg-[#E0E0E0] cursor-pointer transition-colors" data-kid="2-5-1-3-2" data-name="modal secondary close button" id="modal-secondary-close" type="button">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Lenis + Anime.js v4 + Portfolio Interactivity Script -->
+<script type="module">
+    import Lenis from "https://esm.sh/lenis@1";
+  import { animate } from "https://esm.sh/animejs@4";
+
+  // 1. Initialize Lenis Smooth Scroll & Cinematic Hero Parallax
+  const lenis = new Lenis({
+    duration: 1.1,
+    smoothWheel: true
+  });
+
+  const portraitFrame = document.getElementById('hero-portrait-frame');
+  const portraitWrapper = document.getElementById('hero-portrait-wrapper');
+  const progressBar = document.getElementById('scroll-progress-bar');
+  const heroSection = document.getElementById('home');
+
+  // Scroll-driven: progress bar + restrained portrait parallax
+  lenis.on('scroll', ({ scroll, limit }) => {
+    // Progress bar
+    if (progressBar && limit > 0) {
+      const pct = Math.min(100, Math.max(0, (scroll / limit) * 100));
+      progressBar.style.width = `${pct}%`;
+    }
+    // Restrained scroll parallax on portrait (translates upward slightly)
+    if (portraitFrame && heroSection) {
+      const heroRect = heroSection.getBoundingClientRect();
+      const heroHeight = heroSection.offsetHeight;
+      if (heroRect.top < window.innerHeight && heroRect.bottom > 0) {
+        const progress = Math.max(0, Math.min(1, -heroRect.top / heroHeight));
+        const translateY = progress * -40; // Max 40px upward
+        portraitFrame.style.transform = `translateY(${translateY.toFixed(1)}px)`;
+      }
+    }
+  });
+
+  // Mouse-follow parallax (desktop only, subtle ~8px max movement)
+  if (window.innerWidth >= 1024 && portraitWrapper) {
+    let mouseX = 0, mouseY = 0;
+    let currentX = 0, currentY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      mouseX = ((e.clientX - centerX) / centerX) * 8;  // Max ±8px
+      mouseY = ((e.clientY - centerY) / centerY) * 6;  // Max ±6px
+    });
+
+    function updateParallax() {
+      // Smooth interpolation (lerp)
+      currentX += (mouseX - currentX) * 0.06;
+      currentY += (mouseY - currentY) * 0.06;
+      if (portraitWrapper) {
+        portraitWrapper.style.transform = `translate(${currentX.toFixed(2)}px, ${currentY.toFixed(2)}px)`;
+      }
+      requestAnimationFrame(updateParallax);
+    }
+    requestAnimationFrame(updateParallax);
+  }
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // 2. Role Cycling Typewriter in Hero
+  const roles = [
+    "AI Engineer",
+    "Full-Stack Developer",
+    "Generative AI Engineer"
+  ];
+  let roleIndex = 0;
+  let charIndex = roles[0].length;
+  let isDeleting = false;
+  const roleEl = document.getElementById('typewriter-role');
+
+  function stepTypewriter() {
+    if (!roleEl) return;
+    const currentWord = roles[roleIndex];
+
+    if (!isDeleting) {
+      charIndex++;
+      roleEl.textContent = currentWord.substring(0, charIndex);
+      if (charIndex === currentWord.length) {
+        isDeleting = true;
+        setTimeout(stepTypewriter, 2200);
+        return;
+      }
+      setTimeout(stepTypewriter, 65);
+    } else {
+      charIndex--;
+      roleEl.textContent = currentWord.substring(0, Math.max(1, charIndex));
+      if (charIndex <= 1) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        charIndex = 0;
+        setTimeout(stepTypewriter, 180);
+        return;
+      }
+      setTimeout(stepTypewriter, 35);
+    }
+  }
+  setTimeout(() => {
+    isDeleting = true;
+    stepTypewriter();
+  }, 2400);
+
+  // 3. Theme Toggle (Dark Default / Light Porcelain Toggle)
+  const themeBtn = document.getElementById('theme-toggle-btn');
+  const themeIcon = document.getElementById('theme-icon');
+  themeBtn?.addEventListener('click', () => {
+    document.body.classList.toggle('light-theme');
+    const isLight = document.body.classList.contains('light-theme');
+    if (themeIcon) {
+      themeIcon.className = isLight ? 'ti ti-moon' : 'ti ti-sun';
+    }
+  });
+
+  // 4. Skills Data & Answer-First Query Tabs with Anime.js v4 Line Reveal
+  const skillDomainMeta = {
+    all: {
+      query: "'ALL_DOMAINS'",
+      title: "Complete Full-Stack & Applied AI Matrix",
+      desc: "Spanning 8 verified technical domains from low-level Computer Science fundamentals (DSA, OS, DBMS) to modern full-stack application engineering (React.js, Node.js, Express.js, PostgreSQL, Prisma) and autonomous Generative AI orchestration (LLMs, RAG, AI Agents, and Model Context Protocol)."
+    },
+    languages: {
+      query: "'PROGRAMMING_LANGUAGES'",
+      title: "Core Programming & Query Languages",
+      desc: "Production fluency in Python for NLP pipelines and machine learning heuristics, JavaScript (ES6+) for full-stack web engineering, and SQL for relational schema querying and performance tuning."
+    },
+    frontend: {
+      query: "'FRONTEND_DEVELOPMENT'",
+      title: "Reactive Client Interface Engineering",
+      desc: "Component-driven enterprise UI development using React.js — powering interactive sales pipelines in PipelineFlow CRM and real-time applicant evaluation boards in HireGem ATS."
+    },
+    backend: {
+      query: "'BACKEND_DEVELOPMENT'",
+      title: "Server-Side APIs & Asynchronous Pipelines",
+      desc: "Scalable REST and tool-execution microservices built with Node.js and Express.js, integrating third-party webhooks, IMAP email workers, and Microsoft Graph API."
+    },
+    database: {
+      query: "'DATABASES_AND_DATA'",
+      title: "Relational Persistence & Type-Safe ORM",
+      desc: "Enterprise schema modeling in PostgreSQL paired with Prisma ORM for type-safe migrations, transactional integrity, and structured AI agent tool mutations."
+    },
+    aiml: {
+      query: "'AI_ML_GENAI'",
+      title: "Generative AI, Machine Learning & NLP",
+      desc: "Applied Generative AI, Machine Learning, Deep Learning, and Natural Language Processing — including 500+ domain heuristics for automated resume entity extraction."
+    },
+    llm: {
+      query: "'LLMS_RAG_AGENTS'",
+      title: "Autonomous Agents, RAG & Model Context Protocol",
+      desc: "Production orchestration of Large Language Models (Gemini 3.5 Flash), Retrieval-Augmented Generation (RAG), multi-tool AI Agents, and MCP conversational bridges."
+    },
+    tools: {
+      query: "'DEV_TOOLS_CLOUD'",
+      title: "Version Control & Containerized Deployment",
+      desc: "Reproducible development and deployment workflows using Git version control and Docker containerization."
+    },
+    cs: {
+      query: "'CORE_CS_CONCEPTS'",
+      title: "NIT Srinagar Computer Science Foundations",
+      desc: "Rigorous academic grounding in Data Structures & Algorithms (DSA), Database Management Systems (DBMS), Object-Oriented Programming (OOP), Operating Systems, and Computer Networks."
+    }
+  };
+
+  const skillsData = [
+    { name: "Python", cat: "languages", domainLabel: "Languages", icon: "ti-brand-python", usage: "NLP Parsing & AI Pipelines" },
+    { name: "JavaScript", cat: "languages", domainLabel: "Languages", icon: "ti-brand-javascript", usage: "Full-Stack Runtime Logic" },
+    { name: "SQL", cat: "languages", domainLabel: "Languages", icon: "ti-database", usage: "Relational Querying" },
+    { name: "React.js", cat: "frontend", domainLabel: "Frontend", icon: "ti-brand-react", usage: "Enterprise SPA Interfaces" },
+    { name: "Node.js", cat: "backend", domainLabel: "Backend", icon: "ti-brand-nodejs", usage: "Async Server Runtime" },
+    { name: "Express.js", cat: "backend", domainLabel: "Backend", icon: "ti-server", usage: "REST & Webhook Routing" },
+    { name: "PostgreSQL", cat: "database", domainLabel: "Databases", icon: "ti-database-export", usage: "Primary Relational Store" },
+    { name: "Prisma", cat: "database", domainLabel: "Databases", icon: "ti-schema", usage: "Type-Safe ORM Layer" },
+    { name: "GenAI", cat: "aiml", domainLabel: "AI / ML / GenAI", icon: "ti-cpu", usage: "Gemini 3.5 Flash Integration" },
+    { name: "Machine Learning", cat: "aiml", domainLabel: "AI / ML / GenAI", icon: "ti-chart-dots-3", usage: "Predictive Scoring Models" },
+    { name: "Deep Learning", cat: "aiml", domainLabel: "AI / ML / GenAI", icon: "ti-network", usage: "Neural Representations" },
+    { name: "NLP", cat: "aiml", domainLabel: "AI / ML / GenAI", icon: "ti-language", usage: "500+ Resume Heuristics" },
+    { name: "LLMs", cat: "llm", domainLabel: "LLMs & Agents", icon: "ti-brain", usage: "Prompt & Intent Reasoning" },
+    { name: "RAG", cat: "llm", domainLabel: "LLMs & Agents", icon: "ti-files", usage: "Context-Grounded Retrieval" },
+    { name: "AI Agents", cat: "llm", domainLabel: "LLMs & Agents", icon: "ti-robot", usage: "Multi-Tool CRUD Execution" },
+    { name: "MCP (Model Context Protocol)", cat: "llm", domainLabel: "LLMs & Agents", icon: "ti-plug-connected", usage: "Conversational CRM Bridge" },
+    { name: "Git", cat: "tools", domainLabel: "Dev Tools", icon: "ti-brand-git", usage: "Distributed Version Control" },
+    { name: "Docker", cat: "tools", domainLabel: "Dev Tools", icon: "ti-brand-docker", usage: "Containerized Services" },
+    { name: "DSA", cat: "cs", domainLabel: "Core CS", icon: "ti-binary-tree", usage: "Algorithmic Optimization" },
+    { name: "DBMS", cat: "cs", domainLabel: "Core CS", icon: "ti-table", usage: "ACID & Indexing Theory" },
+    { name: "OOP", cat: "cs", domainLabel: "Core CS", icon: "ti-box-multiple", usage: "Modular System Design" },
+    { name: "Operating Systems", cat: "cs", domainLabel: "Core CS", icon: "ti-device-desktop-analytics", usage: "Concurrency & Processes" },
+    { name: "Computer Networks", cat: "cs", domainLabel: "Core CS", icon: "ti-world-latitude", usage: "TCP/IP, HTTP & IMAP" }
+  ];
+
+  const skillsGrid = document.getElementById('skills-chip-grid');
+  const queryLabel = document.getElementById('active-skill-query-label');
+  const resultCount = document.getElementById('skill-result-count');
+  const synthTitle = document.getElementById('skill-synthesis-title');
+  const synthDesc = document.getElementById('skill-synthesis-desc');
+
+  const domainOrder = [
+    { key: "languages", code: "01", title: "Programming Languages" },
+    { key: "frontend", code: "02", title: "Frontend Development" },
+    { key: "backend", code: "03", title: "Backend Development" },
+    { key: "database", code: "04", title: "Databases & Data" },
+    { key: "aiml", code: "05", title: "AI / ML / GenAI" },
+    { key: "llm", code: "06", title: "LLMs, RAG & AI Agents" },
+    { key: "tools", code: "07", title: "Developer Tools & Cloud" },
+    { key: "cs", code: "08", title: "Core CS Concepts" }
+  ];
+
+  function renderSkills(category) {
+    if (!skillsGrid) return;
+    const filtered = category === 'all' ? skillsData : skillsData.filter(s => s.cat === category);
+    const meta = skillDomainMeta[category] || skillDomainMeta.all;
+
+    if (queryLabel) queryLabel.textContent = meta.query;
+    if (resultCount) resultCount.textContent = String(filtered.length);
+    if (synthTitle) synthTitle.textContent = meta.title;
+    if (synthDesc) synthDesc.textContent = meta.desc;
+
+    const activeDomains = category === 'all'
+      ? domainOrder
+      : domainOrder.filter(d => d.key === category);
+
+    skillsGrid.innerHTML = activeDomains.map(domain => {
+      const items = skillsData.filter(s => s.cat === domain.key);
+      return `
+        <div class="py-4 grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+          <div class="lg:col-span-3 flex items-center gap-3">
+            <span class="font-mono text-[11px] text-[#707078]">${domain.code}</span>
+            <span class="font-heading text-sm font-medium text-[#F5F5F5]">${domain.title}</span>
+            <span class="font-mono text-[11px] text-[#707078]">(${items.length})</span>
+          </div>
+          <div class="lg:col-span-9 flex flex-wrap gap-2.5">
+            ${items.map(skill => `
+              <div class="outer-stroke-tile px-3.5 py-2 flex items-center gap-2.5 bg-[#0c0c0e] border border-[#202026] hover:border-[#383842] hover:bg-[#141418] transition-all duration-200">
+                <span class="text-sm text-[#F5F5F5]"><i class="ti ${skill.icon}"></i></span>
+                <div class="overflow-hidden">
+                  <span class="skill-line-reveal inline-block font-mono text-xs font-medium text-[#F5F5F5]">${skill.name}</span>
+                </div>
+                <span class="hidden sm:inline font-mono text-[11px] text-[#707078] border-l border-[#202026] pl-2">${skill.usage}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Anime.js v4 line mask reveal on skill names
+    const targets = skillsGrid.querySelectorAll('.skill-line-reveal');
+    if (targets.length > 0) {
+      animate(targets, {
+        y: ['100%', '0%'],
+        opacity: [0, 1],
+        duration: 380,
+        delay: (_, i) => i * 22,
+        ease: 'out(3)'
+      });
+    }
+  }
+
+  document.querySelectorAll('.skill-tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const cat = btn.getAttribute('data-skill-cat') || 'all';
+      document.querySelectorAll('.skill-tab-btn').forEach(b => {
+        b.className = "skill-tab-btn px-3 py-1.5 font-mono text-[11px] border border-[#202026] bg-[#0c0c0e] text-[#A0A0A0] hover:text-[#F5F5F5] hover:border-[#383842] transition-colors cursor-pointer";
+      });
+      btn.className = "skill-tab-btn px-3 py-1.5 font-mono text-[11px] border border-[#F5F5F5] bg-[#F5F5F5] text-[#000000] font-medium tracking-wide cursor-pointer";
+      renderSkills(cat);
+    });
+  });
+
+  renderSkills('all');
+
+  // 5. Projects Data & Filterable Grid (with 480x360px Hatched Diagonal Warning Line SVG Pattern for Placeholders)
+  const projectsData = [
+    {
+      id: "pipelineflow-crm",
+      code: "PRJ_01",
+      title: "PipelineFlow CRM",
+      period: "Jan 2025 – Oct 2025 · Rashmi Metaliks Limited",
+      category: "AI/ML",
+      tags: ["AI/ML", "Full-Stack"],
+      isPlaceholder: false,
+      description: "AI-powered full-stack enterprise CRM combining Gemini 3.5 Flash tool-calling agents, an MCP conversational interface, natural-language intent detection, and GPS field activity tracking.",
+      problem: "Sales teams lost hours navigating fragmented forms to log client updates and field visits, resulting in stale pipeline records and unverified on-site check-ins.",
+      solution: "Engineered an AI agent with deterministic CRUD tool functions and a Model Context Protocol (MCP) chatbot over React, Node, Express, PostgreSQL, and Prisma.",
+      bullets: [
+        "Engineered AI-powered CRM using Gemini 3.5 Flash, React.js, Node.js, Express.js, PostgreSQL, and Prisma.",
+        "Created AI agent with multiple tool functions for automated database CRUD operations.",
+        "Built MCP-based conversational chatbot for contextual pipeline intelligence.",
+        "Implemented natural-language intent understanding and GPS-based field activity tracking."
+      ],
+      techStack: ["Gemini 3.5 Flash", "React.js", "Node.js", "Express.js", "PostgreSQL", "Prisma", "MCP"],
+      liveUrl: "https://crm.rashmimetaliks.com/"
+    },
+    {
+      id: "hiregem-ats",
+      code: "PRJ_02",
+      title: "HireGem ATS",
+      period: "Nov 2025 – Jun 2026 · Rashmi Metaliks Limited",
+      category: "AI/ML",
+      tags: ["AI/ML", "Full-Stack"],
+      isPlaceholder: false,
+      description: "Intelligent Applicant Tracking System featuring a Python NLP resume parser with 500+ domain heuristics, an automated IMAP pipeline processing 1,000+ applications, and Microsoft Graph API integration.",
+      problem: "Manual screening of over a thousand incoming email applications created severe hiring latency and inconsistent candidate evaluation across technical roles.",
+      solution: "Built an automated IMAP ingestion pipeline coupled with a 500+ heuristic Python NLP parsing engine and MS Graph API calendar/email orchestration.",
+      bullets: [
+        "Architected full-stack ATS using React.js, Node.js, Express.js, PostgreSQL, Prisma, and Python.",
+        "Engineered NLP resume parsing engine powered by 500+ domain heuristics.",
+        "Constructed automated IMAP email ingestion pipeline handling 1,000+ candidate applications.",
+        "Integrated Microsoft Graph API for automated scheduling and candidate communication."
+      ],
+      techStack: ["Python", "NLP", "React.js", "Node.js", "Express.js", "PostgreSQL", "Prisma", "MS Graph API"],
+      liveUrl: "https://ats.rashmimetaliks.com/"
+    },
+    {
+      id: "placeholder-slot-03",
+      code: "SLOT_03",
+      title: "Enterprise RAG Knowledge Engine",
+      period: "UPCOMING RELEASE // IN DEVELOPMENT",
+      category: "Placeholder",
+      tags: ["Placeholder"],
+      isPlaceholder: true,
+      description: "Upcoming Retrieval-Augmented Generation service for indexing technical documentation and answering citation-backed queries.",
+      problem: "Engineering teams need fast, source-grounded answers across internal PDFs and markdown runbooks.",
+      solution: "Hybrid semantic + keyword retrieval pipeline with chunk-level citation tracking.",
+      bullets: [
+        "Document ingestion and chunking pipeline in active development.",
+        "Public repository and live walkthrough will be linked upon release."
+      ],
+      techStack: ["RAG", "Python", "PostgreSQL", "Coming Soon"]
+    },
+    {
+      id: "placeholder-slot-04",
+      code: "SLOT_04",
+      title: "Multi-Agent Workflow Orchestrator",
+      period: "UPCOMING RELEASE // IN DEVELOPMENT",
+      category: "Placeholder",
+      tags: ["Placeholder"],
+      isPlaceholder: true,
+      description: "Upcoming full-stack dashboard for inspecting, replaying, and auditing multi-step LLM agent tool executions.",
+      problem: "Production AI agents require clear observability into prompt latency, tool parameters, and fallback paths.",
+      solution: "Event-sourced execution log built with Node.js, Express.js, Prisma, and React.js.",
+      bullets: [
+        "Real-time trace viewer and schema validation layer in progress.",
+        "Public repository link will be published upon completion."
+      ],
+      techStack: ["AI Agents", "Node.js", "React.js", "Coming Soon"]
+    },
+    {
+      id: "placeholder-slot-05",
+      code: "SLOT_05",
+      title: "MCP Database Inspector",
+      period: "UPCOMING RELEASE // IN DEVELOPMENT",
+      category: "Placeholder",
+      tags: ["Placeholder"],
+      isPlaceholder: true,
+      description: "Upcoming Model Context Protocol server providing read-only schema introspection and safe query explain plans for LLM clients.",
+      problem: "Connecting conversational assistants to relational databases requires strict guardrails and schema awareness.",
+      solution: "Lightweight MCP server exposing parameterized PostgreSQL diagnostics.",
+      bullets: [
+        "Read-only transaction sandbox and schema serializer in progress.",
+        "Public repository link will be published upon completion."
+      ],
+      techStack: ["MCP", "PostgreSQL", "Node.js", "Coming Soon"]
+    },
+    {
+      id: "placeholder-slot-06",
+      code: "SLOT_06",
+      title: "Distributed Job Queue Monitor",
+      period: "UPCOMING RELEASE // IN DEVELOPMENT",
+      category: "Placeholder",
+      tags: ["Placeholder"],
+      isPlaceholder: true,
+      description: "Upcoming systems utility for monitoring asynchronous worker queues, dead-letter retries, and container throughput.",
+      problem: "High-volume background ingestion pipelines require clear visibility into worker saturation and retry backoffs.",
+      solution: "Containerized telemetry service with a clean tabular status interface.",
+      bullets: [
+        "Worker heartbeat monitor and retry controls in progress.",
+        "Public repository link will be published upon completion."
+      ],
+      techStack: ["Docker", "Express.js", "SQL", "Coming Soon"]
+    }
+  ];
+
+  // 480x360 Hatched Diagonal Warning Line Technical SVG for Placeholders
+  function getHatchedPlaceholderSVG(slotCode) {
+    return `
+      <svg viewBox="0 0 480 360" width="480" height="360" class="w-full aspect-[4/3] h-auto block bg-[#0F0F0F] border-b border-[var(--border-iron)]" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hatched diagonal warning line technical placeholder pattern">
+        <defs>
+          <pattern id="diag-hatch-${slotCode}" width="18" height="18" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="0" y2="18" stroke="#222222" stroke-width="2.5" />
+          </pattern>
+        </defs>
+        <rect width="480" height="360" fill="url(#diag-hatch-${slotCode})" />
+        <rect x="20" y="20" width="440" height="320" fill="none" stroke="#717885" stroke-width="1.2" stroke-dasharray="6 4" />
+        <line x1="20" y1="20" x2="460" y2="340" stroke="#565C68" stroke-width="1.2" />
+        <line x1="460" y1="20" x2="20" y2="340" stroke="#565C68" stroke-width="1.2" />
+        <rect x="95" y="136" width="290" height="88" fill="#141414" stroke="#B8BDC7" stroke-width="1.5" />
+        <text x="240" y="172" text-anchor="middle" fill="#FAFAFA" font-family="Geist Mono, monospace" font-size="15" font-weight="500" letter-spacing="1.5">${slotCode} // RESERVED SLOT</text>
+        <text x="240" y="198" text-anchor="middle" fill="#E4E6EB" font-family="Geist Mono, monospace" font-size="12" letter-spacing="1">IN DEVELOPMENT · REPO PENDING</text>
+      </svg>
+    `;
+  }
+
+  // Verified Project Schematic SVG Preview
+  function getVerifiedSchematicSVG(proj) {
+    if (proj.id === 'pipelineflow-crm') {
+      return `
+        <svg viewBox="0 0 480 360" width="480" height="360" class="w-full aspect-[4/3] h-auto block bg-[#0F0F0F] border-b border-[var(--border-iron)]" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PipelineFlow CRM Architecture Diagram">
+          <rect width="480" height="360" fill="#0F0F0F" />
+          <g stroke="#222222" stroke-width="1">
+            <line x1="0" y1="56" x2="480" y2="56" />
+            <line x1="0" y1="308" x2="480" y2="308" />
+            <line x1="40" y1="0" x2="40" y2="360" />
+            <line x1="440" y1="0" x2="440" y2="360" />
+          </g>
+          <rect x="24" y="96" width="128" height="172" fill="#181818" stroke="#FAFAFA" stroke-width="1.5" />
+          <text x="88" y="138" text-anchor="middle" fill="#FAFAFA" font-family="Geist Mono, monospace" font-size="14" font-weight="600">GEMINI 3.5</text>
+          <text x="88" y="164" text-anchor="middle" fill="#E4E6EB" font-family="Geist Mono, monospace" font-size="12">NL INTENT</text>
+          <text x="88" y="224" text-anchor="middle" fill="#B8BDC7" font-family="Geist Mono, monospace" font-size="11">TOOL CALLS</text>
+
+          <line x1="152" y1="182" x2="176" y2="182" stroke="#FAFAFA" stroke-width="2" stroke-dasharray="4 3" />
+
+          <rect x="176" y="84" width="128" height="196" fill="#141414" stroke="#E4E6EB" stroke-width="1.5" />
+          <text x="240" y="128" text-anchor="middle" fill="#FAFAFA" font-family="Geist Mono, monospace" font-size="14" font-weight="600">MCP BRIDGE</text>
+          <text x="240" y="156" text-anchor="middle" fill="#E4E6EB" font-family="Geist Mono, monospace" font-size="12">AI AGENT</text>
+          <text x="240" y="206" text-anchor="middle" fill="#E4E6EB" font-family="Geist Mono, monospace" font-size="11">GPS TRACKING</text>
+          <text x="240" y="232" text-anchor="middle" fill="#B8BDC7" font-family="Geist Mono, monospace" font-size="11">NODE / EXPRESS</text>
+
+          <line x1="304" y1="182" x2="328" y2="182" stroke="#FAFAFA" stroke-width="2" stroke-dasharray="4 3" />
+
+          <rect x="328" y="96" width="128" height="172" fill="#181818" stroke="#B8BDC7" stroke-width="1.5" />
+          <text x="392" y="138" text-anchor="middle" fill="#FAFAFA" font-family="Geist Mono, monospace" font-size="14" font-weight="600">POSTGRESQL</text>
+          <text x="392" y="164" text-anchor="middle" fill="#E4E6EB" font-family="Geist Mono, monospace" font-size="12">PRISMA ORM</text>
+          <text x="392" y="224" text-anchor="middle" fill="#B8BDC7" font-family="Geist Mono, monospace" font-size="11">CRUD STATE</text>
+
+          <text x="24" y="36" fill="#E4E6EB" font-family="Geist Mono, monospace" font-size="12">SYS 01 // PIPELINEFLOW CRM</text>
+          <text x="456" y="36" text-anchor="end" fill="#FAFAFA" font-family="Geist Mono, monospace" font-size="12" font-weight="600">PRODUCTION</text>
+        </svg>
+      `;
+    }
+    return `
+      <svg viewBox="0 0 480 360" width="480" height="360" class="w-full aspect-[4/3] h-auto block bg-[#0F0F0F] border-b border-[var(--border-iron)]" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="HireGem ATS Architecture Diagram">
+        <rect width="480" height="360" fill="#0F0F0F" />
+        <g stroke="#222222" stroke-width="1">
+          <line x1="0" y1="56" x2="480" y2="56" />
+          <line x1="0" y1="308" x2="480" y2="308" />
+          <line x1="40" y1="0" x2="40" y2="360" />
+          <line x1="440" y1="0" x2="440" y2="360" />
+        </g>
+        <rect x="24" y="96" width="128" height="172" fill="#181818" stroke="#B8BDC7" stroke-width="1.5" />
+        <text x="88" y="138" text-anchor="middle" fill="#FAFAFA" font-family="Geist Mono, monospace" font-size="14" font-weight="600">IMAP STREAM</text>
+        <text x="88" y="164" text-anchor="middle" fill="#E4E6EB" font-family="Geist Mono, monospace" font-size="12">1,000+ APPS</text>
+        <text x="88" y="224" text-anchor="middle" fill="#B8BDC7" font-family="Geist Mono, monospace" font-size="11">AUTO-INGEST</text>
+
+        <line x1="152" y1="182" x2="176" y2="182" stroke="#FAFAFA" stroke-width="2" stroke-dasharray="4 3" />
+
+        <rect x="176" y="84" width="128" height="196" fill="#141414" stroke="#FAFAFA" stroke-width="1.5" />
+        <text x="240" y="128" text-anchor="middle" fill="#FAFAFA" font-family="Geist Mono, monospace" font-size="14" font-weight="600">PYTHON NLP</text>
+        <text x="240" y="156" text-anchor="middle" fill="#E4E6EB" font-family="Geist Mono, monospace" font-size="12">500+ RULES</text>
+        <text x="240" y="206" text-anchor="middle" fill="#E4E6EB" font-family="Geist Mono, monospace" font-size="11">ENTITY PARSER</text>
+        <text x="240" y="232" text-anchor="middle" fill="#B8BDC7" font-family="Geist Mono, monospace" font-size="11">HEURISTIC FIT</text>
+
+        <line x1="304" y1="182" x2="328" y2="182" stroke="#FAFAFA" stroke-width="2" stroke-dasharray="4 3" />
+
+        <rect x="328" y="96" width="128" height="172" fill="#181818" stroke="#E4E6EB" stroke-width="1.5" />
+        <text x="392" y="138" text-anchor="middle" fill="#FAFAFA" font-family="Geist Mono, monospace" font-size="14" font-weight="600">MS GRAPH API</text>
+        <text x="392" y="164" text-anchor="middle" fill="#E4E6EB" font-family="Geist Mono, monospace" font-size="12">POSTGRESQL</text>
+        <text x="392" y="224" text-anchor="middle" fill="#B8BDC7" font-family="Geist Mono, monospace" font-size="11">REACT ATS UI</text>
+
+        <text x="24" y="36" fill="#E4E6EB" font-family="Geist Mono, monospace" font-size="12">SYS 02 // HIREGEM ATS</text>
+        <text x="456" y="36" text-anchor="end" fill="#FAFAFA" font-family="Geist Mono, monospace" font-size="12" font-weight="600">PRODUCTION</text>
+      </svg>
+    `;
+  }
+
+  let activeProjectFilter = 'All';
+  let activeSearchQuery = '';
+  const projectsGrid = document.getElementById('projects-grid');
+  const emptyState = document.getElementById('projects-empty-state');
+
+  function renderProjects() {
+    if (!projectsGrid) return;
+    const q = activeSearchQuery.trim().toLowerCase();
+
+    const filtered = projectsData.filter(p => {
+      const matchesTab = activeProjectFilter === 'All' || p.tags.includes(activeProjectFilter);
+      const matchesSearch = !q ||
+        p.title.toLowerCase().includes(q) ||
+        p.description.toLowerCase().includes(q) ||
+        p.techStack.some(t => t.toLowerCase().includes(q));
+      return matchesTab && matchesSearch;
+    });
+
+    if (filtered.length === 0) {
+      projectsGrid.innerHTML = '';
+      emptyState?.classList.remove('hidden');
+      return;
+    }
+    emptyState?.classList.add('hidden');
+
+    projectsGrid.innerHTML = filtered.map(proj => `
+      <article class="outer-stroke-tile flex flex-col justify-between group bg-[#0c0c0e] border border-[#202026] hover:border-[#383842] transition-all duration-300 hover:-translate-y-1">
+        <div>
+          <!-- Top Bar -->
+          <div class="px-5 py-3 bg-[#101014] border-b border-[#202026] flex items-center justify-between font-mono text-[11px]">
+            <span class="text-[#707078] group-hover:text-[#A0A0A0] transition-colors">${proj.code}</span>
+            ${proj.isPlaceholder
+              ? `<span class="px-2 py-0.5 border border-[#202026] text-[#707078] bg-[#0c0c0e]">SLOT // RESERVED</span>`
+              : `<span class="cut-corner-badge px-2.5 py-0.5 bg-[#F5F5F5] text-[#000000] font-medium tracking-wide">VERIFIED RESUME</span>`
+            }
+          </div>
+
+          <!-- Visual SVG Header (Schematic or 480x360 Hatched Warning Pattern) -->
+          <div class="overflow-hidden border-b border-[#202026]">
+            ${proj.isPlaceholder ? getHatchedPlaceholderSVG(proj.code) : getVerifiedSchematicSVG(proj)}
+          </div>
+
+          <!-- Body Content -->
+          <div class="p-6">
+            <div class="font-mono text-[11px] text-[#707078]">${proj.period}</div>
+            <h3 class="mt-2 font-heading text-xl font-medium text-[#F5F5F5] group-hover:text-white transition-colors">${proj.title}</h3>
+            <p class="mt-2.5 text-sm text-[#A0A0A0] leading-relaxed line-clamp-3">${proj.description}</p>
+
+            <div class="mt-5 flex flex-wrap gap-1.5">
+              ${proj.techStack.map(t => `
+                <span class="px-2 py-0.5 bg-[#141418] border border-[#202026] font-mono text-[11px] text-[#A0A0A0] group-hover:border-[#2e2e38] transition-colors">${t}</span>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Footer -->
+        <div class="px-6 py-4 border-t border-[#202026] bg-[#101014] flex items-center justify-between">
+          <span class="font-mono text-[11px] text-[#707078]">
+            ${proj.isPlaceholder ? 'STATUS: IN DEV' : 'RASHMI METALIKS LTD.'}
+          </span>
+          <button
+            type="button"
+            data-open-modal="${proj.id}"
+            class="open-proj-modal-btn px-3 py-1.5 bg-[#18181c] border border-[#282830] hover:border-[#F5F5F5] hover:bg-[#F5F5F5] hover:text-[#000000] font-mono text-[11px] text-[#F5F5F5] transition-all duration-200 flex items-center gap-1.5 cursor-pointer"
+          >
+            <span>VIEW SPEC</span>
+            <i class="ti ti-arrow-up-right"></i>
+          </button>
+        </div>
+      </article>
+    `).join('');
+
+    projectsGrid.querySelectorAll('.open-proj-modal-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-open-modal');
+        if (id) window.openProjectModal(id);
+      });
+    });
+  }
+
+  document.querySelectorAll('.proj-filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeProjectFilter = btn.getAttribute('data-proj-filter') || 'All';
+      document.querySelectorAll('.proj-filter-btn').forEach(b => {
+        b.className = "proj-filter-btn px-3.5 py-1.5 font-mono text-[11px] border border-[#202026] bg-[#0c0c0e] text-[#A0A0A0] hover:text-[#F5F5F5] hover:border-[#383842] transition-colors cursor-pointer";
+      });
+      btn.className = "proj-filter-btn px-3.5 py-1.5 font-mono text-[11px] border border-[#F5F5F5] bg-[#F5F5F5] text-[#000000] font-medium tracking-wide cursor-pointer";
+      renderProjects();
+    });
+  });
+
+  const searchInput = document.getElementById('project-search-input');
+  searchInput?.addEventListener('input', (e) => {
+    activeSearchQuery = e.target.value || '';
+    renderProjects();
+  });
+
+  document.getElementById('reset-project-filters')?.addEventListener('click', () => {
+    activeProjectFilter = 'All';
+    activeSearchQuery = '';
+    if (searchInput) searchInput.value = '';
+    document.querySelectorAll('.proj-filter-btn').forEach((b, idx) => {
+      b.className = idx === 0
+        ? "proj-filter-btn px-3.5 py-1.5 font-mono text-[11px] border border-[var(--text-paper)] bg-[var(--text-paper)] text-[var(--bg-ink)] font-medium cursor-pointer"
+        : "proj-filter-btn px-3.5 py-1.5 font-mono text-[11px] border border-[var(--border-iron)] bg-[var(--bg-graphite)] text-[var(--text-ash)] hover:text-[var(--text-paper)] cursor-pointer";
+    });
+    renderProjects();
+  });
+
+  renderProjects();
+
+  // 6. Accessible Project Details Modal
+  const modalBackdrop = document.getElementById('project-modal-backdrop');
+  const modalTitle = document.getElementById('modal-project-title');
+  const modalPeriod = document.getElementById('modal-project-period');
+  const modalBadge = document.getElementById('modal-project-badge');
+  const modalCategory = document.getElementById('modal-project-category');
+  const modalDesc = document.getElementById('modal-project-desc');
+  const modalProblem = document.getElementById('modal-project-problem');
+  const modalSolution = document.getElementById('modal-project-solution');
+  const modalBullets = document.getElementById('modal-project-bullets');
+  const modalStack = document.getElementById('modal-project-stack');
+
+  window.openProjectModal = function(projectId) {
+    const proj = projectsData.find(p => p.id === projectId);
+    if (!proj || !modalBackdrop) return;
+
+    if (modalTitle) {
+      if (proj.liveUrl) {
+        modalTitle.innerHTML = `<a href="${proj.liveUrl}" target="_blank" rel="noopener noreferrer" class="hover:underline inline-flex items-center gap-2 text-[#F5F5F5] hover:text-white transition-colors">${proj.title} <i class="ti ti-arrow-up-right text-xl text-[#A0A0A0]"></i></a>`;
+      } else {
+        modalTitle.textContent = proj.title;
+      }
+    }
+    if (modalPeriod) {
+      if (proj.period.includes("Rashmi Metaliks Limited")) {
+        modalPeriod.innerHTML = `${proj.period.replace("Rashmi Metaliks Limited", '<a href="https://www.rashmimetaliks.com/" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-white transition-colors inline-flex items-center gap-1">Rashmi Metaliks Limited <i class="ti ti-arrow-up-right text-[10px]"></i></a>')}`;
+      } else {
+        modalPeriod.textContent = proj.period;
+      }
+    }
+    if (modalBadge) modalBadge.textContent = proj.isPlaceholder ? 'PLACEHOLDER SLOT' : 'VERIFIED PRODUCTION';
+    if (modalCategory) modalCategory.textContent = proj.tags.join(' · ').toUpperCase();
+    if (modalDesc) modalDesc.textContent = proj.description;
+    if (modalProblem) modalProblem.textContent = proj.problem;
+    if (modalSolution) modalSolution.textContent = proj.solution;
+
+    if (modalBullets) {
+      modalBullets.innerHTML = proj.bullets.map(b => `
+        <li class="flex items-start gap-2.5">
+          <span class="font-mono text-[11px] text-[var(--text-paper)] mt-0.5">—</span>
+          <span>${b}</span>
+        </li>
+      `).join('');
+    }
+
+    if (modalStack) {
+      modalStack.innerHTML = proj.techStack.map(t => `
+        <span class="px-2.5 py-1 bg-[var(--bg-graphite)] border border-[var(--border-iron)] font-mono text-[11px] text-[var(--text-paper)]">${t}</span>
+      `).join('');
+    }
+
+    modalBackdrop.classList.remove('hidden');
+    modalBackdrop.classList.add('flex');
+  };
+
+  function closeProjectModal() {
+    if (!modalBackdrop) return;
+    modalBackdrop.classList.add('hidden');
+    modalBackdrop.classList.remove('flex');
+  }
+
+  document.getElementById('close-modal-btn')?.addEventListener('click', closeProjectModal);
+  document.getElementById('modal-secondary-close')?.addEventListener('click', closeProjectModal);
+  modalBackdrop?.addEventListener('click', (e) => {
+    if (e.target === modalBackdrop) closeProjectModal();
+  });
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeProjectModal();
+  });
+
+  // 7. One-Click Copy Email Button
+  const copyBtn = document.getElementById('copy-email-btn');
+  const copyLabel = document.getElementById('copy-email-label');
+  const copyIcon = document.getElementById('copy-email-icon');
+
+  copyBtn?.addEventListener('click', async () => {
+    const email = "ayush2003kumar19@gmail.com";
+    try {
+      await navigator.clipboard.writeText(email);
+    } catch {
+      // Fallback if clipboard API restricted in iframe
+    }
+    if (copyLabel) copyLabel.textContent = "COPIED";
+    if (copyIcon) copyIcon.className = "ti ti-check text-xs";
+    setTimeout(() => {
+      if (copyLabel) copyLabel.textContent = "COPY";
+      if (copyIcon) copyIcon.className = "ti ti-copy text-xs";
+    }, 2200);
+  });
+
+  // 9. IntersectionObserver for Active Section Highlighting in Navbar
+  const sections = document.querySelectorAll('main > section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          const isMatch = link.getAttribute('data-nav') === id;
+          link.className = isMatch
+            ? "nav-link font-mono text-[11px] text-[#111827] font-semibold py-1 border-b border-[#111827]"
+            : "nav-link font-mono text-[11px] text-[#6B7280] hover:text-[#111827] py-1 border-b border-transparent";
+        });
+      }
+    });
+  }, { threshold: 0.25 });
+
+  sections.forEach(sec => observer.observe(sec));
+</script>
+
+</body>
+</html>
